@@ -1,4 +1,4 @@
-from cbsim.node import Node
+from scripts.cbsim.node import Node
 
 class Link:
     '''

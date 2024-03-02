@@ -2,12 +2,12 @@ import math, random
 import time
 import numpy as np
 
-from cbsim.stochastic import Stochastic
-from cbsim.node import Node
-from cbsim.link import Link
-from cbsim.region import Region
-from cbsim.request import Request
-from cbsim.route import Route
+from scripts.cbsim.stochastic import Stochastic
+from scripts.cbsim.node import Node
+from scripts.cbsim.link import Link
+from scripts.cbsim.region import Region
+from scripts.cbsim.request import Request
+from scripts.cbsim.route import Route
 
 class Net:
     '''
