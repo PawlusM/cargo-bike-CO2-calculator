@@ -1,0 +1,1034 @@
+0	ITSC1	L	50.05435	19.9388	1
+1	ITSC2	N	50.05456	19.93837	1
+2	ITSC3	N	50.05479	19.93924	1
+3	ITSC4	N	50.055443	19.936810	1
+4	ITSC5	N	50.05551	19.9359	1
+5	ITSC6	N	50.05682	19.93786	1
+6	ITSC7	N	50.05767	19.93809	1
+7	ITSC8	N	50.05763	19.93755	1
+8	ITSC9	N	50.05814	19.93802	1
+9	ITSC10	N	50.05799	19.93671	1
+10	ITSC11	N	50.05787	19.93506	1
+11	ITSC12	N	50.059	19.94048	1
+12	ITSC13	N	50.05904	19.93975	1
+13	ITSC14	N	50.05909	19.9387	1
+14	ITSC15	N	50.05911	19.93787	1
+15	ITSC16	N	50.05945	19.93622	1
+16	ITSC17	N	50.05925	19.93457	1
+17	ITSC18	N	50.05999	19.93433	1
+18	ITSC19	N	50.0606	19.93264	1
+19	ITSC20	N	50.06019	19.93624	1
+20	ITSC21	N	50.06058	19.93479	1
+21	ITSC22	N	50.06098	19.93367	1
+22	ITSC23	N	50.06116	19.9326	1
+23	ITSC24	N	50.06055	19.93769	1
+24	ITSC25	N	50.06107	19.93668	1
+25	ITSC26	N	50.06132	19.93544	1
+26	ITSC27	N	50.06175	19.93427	1
+27	ITSC28	L	50.06208	19.93341	1
+28	ITSC29	N	50.06233	19.93281	1
+29	ITSC30	N	50.05997	19.94168	1
+30	ITSC31	N	50.06033	19.94133	1
+31	ITSC32	L	50.06036	19.94142	1
+32	ITSC33	N	50.06084	19.93985	1
+33	ITSC34	N	50.06083	19.9397	1
+34	ITSC35	N	50.0613	19.9383	1
+35	ITSC36	N	50.062	19.93631	1
+36	ITSC37	N	50.06251	19.93499	1
+37	ITSC38	N	50.06309	19.93357	1
+38	ITSC39	N	50.06051	19.94146	1
+39	ITSC40	N	50.06125	19.94376	1
+40	ITSC41	N	50.06136	19.94322	1
+41	ITSC42	N	50.06126	19.94183	1
+42	ITSC43	N	50.06166	19.94045	1
+43	ITSC44	N	50.06202	19.9392	1
+44	ITSC45	N	50.06232	19.93797	1
+45	ITSC46	N	50.06278	19.93687	1
+46	ITSC47	N	50.06322	19.93572	1
+47	ITSC48	N	50.06381	19.93429	1
+48	ITSC49	N	50.06162	19.94387	1
+49	ITSC50	N	50.06172	19.94342	1
+50	ITSC51	N	50.06206	19.94238	1
+51	ITSC52	N	50.06247	19.94103	1
+52	ITSC53	N	50.06283	19.93982	1
+53	ITSC54	N	50.06316	19.93859	1
+54	ITSC55	N	50.06354	19.93746	1
+55	ITSC56	N	50.06395	19.93614	1
+56	ITSC57	L	50.06416	19.93542	1
+57	ITSC58	N	50.06426	19.9352	1
+58	ITSC59	N	50.06437	19.93483	1
+59	ITSC60	N	50.06279	19.943	1
+60	ITSC61	N	50.06323	19.94157	1
+61	ITSC62	N	50.06362	19.94043	1
+62	ITSC63	N	50.06397	19.93916	1
+63	ITSC64	N	50.0643	19.938	1
+64	ITSC65	N	50.06462	19.93709	1
+65	ITSC66	N	50.06473	19.93662	1
+66	ITSC67	N	50.06484	19.93691	1
+67	ITSC68	N	50.06315	19.94327	1
+68	ITSC69	L	50.06364	19.94214	1
+69	ITSC70	N	50.06371	19.94193	1
+70	ITSC71	N	50.06347	19.94416	1
+71	ITSC72	N	50.06449	19.94249	1
+72	ITSC73	N	50.0648	19.94133	1
+73	ITSC74	N	50.06476	19.93981	1
+74	ITSC75	N	50.06534	19.9387	1
+75	ITSC76	N	50.06534	19.93677	1
+76	ITSC77	N	50.06478	19.94267	1
+77	ITSC78	N	50.06512	19.94149	1
+78	ITSC79	N	50.06554	19.9388	1
+79	ITSC80	N	50.06549	19.93669	1
+80	4D Gelato	R	50.063081	19.933879	
+81	7 Koron - Apartamenty	H	50.05773	19.938624	
+82	7 Koron - Exclusive Apartments	H	50.05781	19.93869	
+83	77 Sushi. Restauracja	R	50.0583	19.93851	
+84	A. Xara	P	50.05583	19.938385	
+85	A1. Galeria	W	50.05745	19.93756	
+86	Afterbeng Domówka	R	50.06165	19.935587	
+87	Akademia Muzyczna w Krakowie	W	50.061756	19.94309	
+88	Akropolis	R	50.0598	19.937604	
+89	ALBATROS	P	50.062904	19.941199	
+90	Albertina Restaurant & Wine	R	50.059	19.939468	
+91	Alior Bank	W	50.065202	19.938781	
+92	Alior Bank - Oddział	W	50.05988	19.938834	
+93	Alkohole	S	50.06489	19.93829	
+94	All-Med	W	50.062748	19.942842	
+95	Alti Plus SA	S	50.063542	19.936079	
+96	Amarone	R	50.063124	19.939195	
+97	Ambasada Śledzia	R	50.05993	19.939138	
+98	AMBER Guest Rooms	H	50.05939	19.93701	
+99	American Book Store	P	50.064837	19.938137	
+100	Amnesia	R	50.06329	19.94031	
+101	ANMAR SOUVENIRS	P	50.061275	19.939229	
+102	ANNA POLLEN	P	50.063982	19.939531	
+103	Antler Poutine & Burger	R	50.06053	19.934846	
+104	Antyki Jerzy Luberda	P	50.061552	19.941259	
+105	Antyki Jerzy Luberda	P	50.064241	19.935653	
+106	ANTYKI Malgorzata i Adam Widurscy	P	50.05624	19.938248	
+107	Antykwariat AB, Antyki i Dzieła Sztuki	P	50.062432	19.938413	
+108	Antykwariat i wypożyczalnia książek	P	50.06286	19.9385	
+109	Antykwariat Księgarski	W	50.06006	19.939219	
+110	Apartament St. Markus Cracow	H	50.063038	19.942051	
+111	Apartament Vinci	H	50.06108	19.934905	
+112	Apartamento polonia	H	50.062928	19.942335	
+113	Apartamenty Delta Kraków	H	50.063819	19.940228	
+114	Apartamenty Gołębia 3	H	50.06046	19.93541	
+115	Apartamenty LivingArt77	H	50.06071	19.939869	
+116	Apartamenty Szpitalna A4You	H	50.062357	19.94105	
+117	Aparthotel Floriańska	H	50.06348	19.94017	
+118	Aparthotel Grodzka 21	H	50.05877	19.937831	
+119	Aparthotel Stare Miasto	H	50.06017	19.935842	
+120	Apartment "Great Point"	H	50.064056	19.936211	
+121	Apartments Main Market Square	H	50.06068	19.938054	
+122	APTEKA "MANDRAGORA"	P	50.064222	19.942064	
+123	Apteki Bobilewicz	P	50.05885	19.938408	
+124	Aqua e Vino	R	50.06097	19.934808	
+125	Arcady cafe	R	50.061982	19.937391	
+126	Archiwum Kurii Metropolitalnej w Krakowie	W	50.059501	19.935044	
+127	Archiwum Narodowe	W	50.060578	19.941336	
+128	Archiwum Nauk	W	50.06449	19.93942	
+129	Argasińscy	R	50.063	19.93859	
+130	Arkos	P	50.061432	19.940122	
+131	Art - Polnische Küche	R	50.05643	19.93731	
+132	Art & Craft Store	P	50.05846	19.938124	
+133	ARTAX	W	50.063596	19.934676	
+134	ArteMateria - Pracownia krawiecka	W	50.05989	19.935923	
+135	Atut	W	50.062979	19.937188	
+136	Aurarius	P	50.06384	19.94073	
+137	Aurora	H	50.063956	19.93791	
+138	Avicon s.c. Kamińska K., Nagraba I.	P	50.06348	19.94017	
+139	B4	R	50.06037	19.936361	
+140	Baccarat Music Club	R	50.05979	19.938689	
+141	Bagatt, Obuwie	P	50.06024	19.937854	
+142	BAJO Sklep firmowy	P	50.0557	19.93903	
+143	Balato	R	50.0582	19.937755	
+144	Bania Luka	R	50.062682	19.934841	
+145	BaniaLuka	R	50.064139	19.935999	
+146	Bank Pekao S.A.	P	50.06283	19.941543	
+147	Bank Pekao S.A.	W	50.062234	19.939042	
+148	Bank Pekao S.A.	W	50.065329	19.936977	
+149	Bank Pekao S.A.	W	50.062195	19.936105	
+150	Banknocik	P	50.06316	19.94022	
+151	Bar Ambasada Śledzia	R	50.06034	19.939142	
+152	Bar Bulldog	R	50.062074	19.939451	
+153	Bar Grodzki	R	50.05747	19.937972	
+154	Bar Mleczny "Pod Temidą"	R	50.05779	19.937958	
+155	Bar Orientalny AN NAM	R	50.063002	19.934056	
+156	Bar Vabank	R	50.05969	19.939036	
+157	Barber House	P	50.062667	19.940335	
+158	Barbican House Apartments	H	50.063208	19.940231	
+159	Baroque food & wine	R	50.06367	19.93879	
+160	Baza Pub	R	50.062781	19.939923	
+161	Bazylika Mariacka	W	50.061784	19.939424	
+162	Bazylika św, Franciszka z Asyżu w Krakowie	W	50.059265	19.935784	
+163	BEEF Burger	R	50.063729	19.937232	
+164	Beer House	H	50.06398	19.94085	
+165	Beer House	R	50.06398	19.94085	
+166	BeerGallery	R	50.062095	19.942728	
+167	BEIN	P	50.06366	19.93911	
+168	BEIRUT SHAWARMA KEBAB & FALAFEL KRAKOW	R	50.06442	19.94117	
+169	Betmanowska Residence	H	50.062378	19.938517	
+170	Biblioteka Książąt Czartoryskich	W	50.06383	19.939493	
+171	Biblioteka Wydziału Historii i Dziedzictwa Kulturowego PAT	P	50.0596	19.935856	
+172	Bierhalle	R	50.060897	19.940431	
+173	Bison grass	S	50.0564	19.938051	
+174	Bistro Bene	R	50.062364	19.942718	
+175	Bit Computer	P	50.061092	19.941791	
+176	Biuro Podróży BTS	W	50.06439	19.94087	
+177	Black Gallery Pub	R	50.061548	19.942529	
+178	Bobby Burger	R	50.06215	19.941971	
+179	Bobby Burger	R	50.063044	19.936606	
+180	Boccanera	R	50.062992	19.938948	
+181	Bombay Curry	R	50.061362	19.941206	
+182	Bon Ami - Cafe & Bistro	R	50.0567	19.937557	
+183	Bonerowska Restaurant Gourmet Steak & Fish	R	50.062492	19.938306	
+184	Bonobo	R	50.061174	19.940656	
+185	Bookland  Księgarnia Językowo-Edukacyjna	W	50.05998	19.939184	
+186	Bordo, Cafe Restaurant Pub	R	50.0605	19.939	
+187	BORUNI S.C.	P	50.05569	19.938416	
+188	BP SOLTUR	W	50.064241	19.935653	
+189	Brama Hostel	H	50.06461	19.94132	
+190	Bubble Toast	R	50.064241	19.935653	
+191	Budda Drink&Garden	R	50.0611	19.9384	
+192	Bull Burger Grill	R	50.061952	19.940734	
+193	Bull Pub	R	50.06173	19.940581	
+194	Bunkier Cafe	R	50.063565	19.934228	
+195	Burdak Stanisław. Kantor wymiany walut	W	50.06442	19.94117	
+196	Burger King	R	50.062461	19.935412	
+197	Burger Station	R	50.06028	19.934641	
+198	Buty Scholl	P	50.06066	19.936472	
+199	Cafe Botanica	R	50.06014	19.936005	
+200	Cafe Camelot	R	50.063007	19.939114	
+201	Cafe Mini	R	50.05759	19.937941	
+202	Café Olé	R	50.0554	19.938473	
+203	Café Philo	R	50.062095	19.942728	
+204	Cafe Stare Miasto	R	50.06023	19.935869	
+205	Cafe Szał	R	50.061698	19.937309	
+206	Calleo School of Polish	W	50.062266	19.941002	
+207	Camino Bistro & Pub	R	50.06054	19.939303	
+208	Camper	P	50.062305	19.939539	
+209	Carefour Ekspress	S	50.063709	19.937407	
+210	Carrefour	S	50.064659	19.941851	
+211	Carrefour Express	S	50.06336	19.94036	
+212	Carrefour Express	S	50.06076	19.939838	
+213	Carrefour Express	S	50.05949	19.937941	
+214	Carrefour Express	S	50.062427	19.935519	
+215	Cashmire Sp. Z O.o.	P	50.064293	19.9379	
+216	Cegielnia Pub & Club	R	50.06329	19.94031	
+217	Centralny Ośrodek Turystyki Górskiej	W	50.062814	19.935379	
+218	Centrum Badań Mikrobiologicznych i Autoszczepionek	W	50.064557	19.938304	
+219	Centrum Języka i Kultury Polskiej w Świecie UJ	W	50.05491	19.938642	
+220	Cepelia	P	50.06181	19.937524	
+221	Cerkiew Podwyższenia Krzyża Św, w Krakowie	W	50.060261	19.934419	
+222	Cerkiew Zaśnięcia Najświętszej Maryi Panny	W	50.063016	19.941266	
+223	CHAIYO Thai Massage - Grodzka	W	50.05854	19.937817	
+224	Charlotte	R	50.063466	19.935017	
+225	Chicago Jazz	R	50.063956	19.93791	
+226	Chimera	R	50.06167	19.934818	
+227	Chipsy King	R	50.062682	19.934841	
+228	Chłopskie Jadło	R	50.06286	19.9385	
+229	Chłopskie Jadło	R	50.05981	19.937645	
+230	Choice Club	R	50.062781	19.939923	
+231	Chopin Restaurant	R	50.062682	19.937566	
+232	City Center Rooms and Apartments	H	50.0604	19.935234	
+233	City Hostel	H	50.062915	19.943191	
+234	City lunch Cafe	R	50.05727	19.938034	
+235	Ciuciu Cukier Artist	P	50.05825	19.9382	
+236	CK Dezerter	R	50.06029	19.936392	
+237	Classic	H	50.062031	19.942825	
+238	Claudius Hair Treser Academy	P	50.06328	19.94005	
+239	CLIFFORD THAMES	W	50.06389	19.93894	
+240	Cocktail Bar & Bilard	R	50.06043	19.936375	
+241	Coco Apartments	H	50.06409	19.93941	
+242	Coco Music Club	R	50.064222	19.942064	
+243	Coffee and Wine - Consonni Szpitalna	R	50.063016	19.941266	
+244	Collegium Broscianum Uniwersytetu Jagiellońskiego	W	50.05733	19.939157	
+245	Collegium Witkowskiego Uniwersytet Jagielloński	W	50.06147	19.932894	
+246	Collegium Wróblewskiego	W	50.06084	19.933883	
+247	Colombe Beer & Food	R	50.0606	19.93512	
+248	ConsensusMED	W	50.063596	19.934676	
+249	Cool Tour Company	W	50.06009	19.938138	
+250	Corleone Kraków	R	50.05813	19.939024	
+251	Corse Restauracja Korsykańska	R	50.05844	19.939419	
+252	Costa Caffee	R	50.062586	19.937861	
+253	Costa Coffee	R	50.06472	19.94139	
+254	Coyote Bar	R	50.063846	19.936425	
+255	Cracow City Tour	W	50.062755	19.939639	
+256	Cracow Extreme Tours	W	50.064766	19.938458	
+257	Cracow Hostel	H	50.06059	19.93706	
+258	Cracow Old Town Guest House	H	50.062928	19.942335	
+259	Cruising Krakow Bike and Segway Tours & Rentals	P	50.063334	19.937173	
+260	CTS Cracow Tourist Services	W	50.062195	19.936105	
+261	Cupcake Corner	R	50.062848	19.933824	
+262	Cupcake Corner	R	50.06044	19.936414	
+263	Cupcake Corner Bakery	R	50.05758	19.938444	
+264	Currency Express Sp. z o.o. - Kantor	W	50.06452	19.94125	
+265	Cybermachina Game Pub	R	50.06001	19.938846	
+266	CYRANO de BERGERAC	R	50.06498	19.93835	
+267	Czarna Kaczka	R	50.05826	19.939177	
+268	Czeczotka Cocktail Bar	R	50.06135	19.935301	
+269	Czerwone Korale	R	50.061462	19.941482	
+270	Da Piato Restauracja	R	50.06074	19.936899	
+271	De Revolutionibus. Books & Café	R	50.05961	19.936351	
+272	Del Papa	R	50.063908	19.936698	
+273	Delikatesy Biedronka	S	50.062534	19.936414	
+274	Delikatesy Happy	S	50.061507	19.941385	
+275	Delikatesy Kocyk	S	50.0594	19.937935	
+276	Delikatesy na Rogatce	S	50.060154	19.934328	
+277	DESA	W	50.062635	19.9398	
+278	Deseco	P	50.05618	19.938316	
+279	Diamond	R	50.063196	19.938376	
+280	Didi & Rico. Kantor	W	50.05955	19.937525	
+281	Diesel sklep odzieżowy	P	50.06023	19.938094	
+282	Disco Gorączka	R	50.062461	19.935412	
+283	Disco Pub	R	50.06038	19.936492	
+284	Discover Cracow	W	50.063542	19.936079	
+285	Diverse	P	50.062781	19.939923	
+286	Diverse	P	50.062702	19.939585	
+287	Dobra Kasza Nasza	R	50.06173	19.935658	
+288	Dobry Lekarz	W	50.063596	19.934676	
+289	Dom Aukcyjny	W	50.062635	19.9398	
+290	Dom Gościnny UJ	H	50.06427	19.94106	
+291	Dom Jana Matejki w Krakowie	W	50.06391	19.94078	
+292	Dom na Czasie	W	50.061969	19.943174	
+293	Dom Polonii	H	50.06022	19.937514	
+294	Dom Strachu	W	50.062552	19.939443	
+295	Dom Sztuki Antyki Galeria Mirosław Wanat	W	50.065056	19.938387	
+296	Dominican Square Apartments	H	50.05931	19.938535	
+297	DOMINIK MROŻEK EUROKANTOR	W	50.063715	19.941752	
+298	Dominik Rostworowski	W	50.06389	19.93894	
+299	Domino Apartments	H	50.05902	19.938655	
+300	Domowe Przysmaki	R	50.0647	19.93814	
+301	DOZ Apteka	P	50.06164	19.940916	
+302	Drogeria Rossmann	P	50.06106	19.935103	
+303	Dym	R	50.063016	19.938841	
+304	Dymek	P	50.06348	19.94017	
+305	Dziórawy Kocioł	R	50.05746	19.938336	
+306	E. PRZEWŁOCKA SALON FRYZJERSKI	P	50.063982	19.939531	
+307	ECHO Kraków	P	50.062365	19.941741	
+308	Ed Red	R	50.063345	19.937493	
+309	eherbata	P	50.063016	19.941266	
+310	Elja	P	50.061081	19.939221	
+311	EMERALD	P	50.06399	19.94056	
+312	Empik	P	50.06303	19.9398	
+313	Empik	P	50.0611	19.936052	
+314	Enigma Apartments Św. Marka	H	50.06269	19.94314	
+315	Enigma Pub	R	50.05848	19.937739	
+316	Enoteka Pergamin	R	50.05809	19.937895	
+317	Ermine Suites	H	50.063974	19.936457	
+318	Ernesto Travel	W	50.056695	19.939536	
+319	Escape Room	W	50.0632	19.93993	
+320	Escetica	W	50.063301	19.937011	
+321	Euforia Tattoo & Piercing	P	50.0643	19.94081	
+322	Europejska	R	50.062534	19.936414	
+323	Eurotur Air Travel	W	50.065021	19.938596	
+324	Fabryka Pizzy	R	50.063273	19.937373	
+325	Fabryka Pizzy	R	50.062537	19.93973	
+326	Fairtrade Polska	W	50.063898	19.937371	
+327	Fantastic Club	R	50.062461	19.935412	
+328	Farma Burgerownia Roślinna	R	50.06068	19.934974	
+329	Feliks Dancing Club	R	50.06278	19.93815	
+330	Fertility Clinic. Sp. z o.o.	W	50.063596	19.934676	
+331	Filatelia	P	50.064241	19.935653	
+332	Fiorentina	R	50.05596	19.938166	
+333	Fitagain Coffee & Food	R	50.063192	19.936174	
+334	FL-51 s.c. Sklep spożywczy	S	50.06442	19.94117	
+335	Flames	R	50.06348	19.94017	
+336	Flamingo Hostel Kraków	H	50.06221	19.935291	
+337	Florian's Gate	H	50.06449	19.94094	
+338	Flying Tiger	P	50.06386	19.94047	
+339	Fortuna & Friends	R	50.062156	19.940903	
+340	Foto Tempo	P	50.06304	19.941522	
+341	Four Music	R	50.062814	19.935379	
+342	Franciszkańskie Duszpasterstwo Akademickie	W	50.058841	19.936484	
+343	frankie's Stolarska	R	50.05997	19.938914	
+344	FRDL MISTiA	W	50.06344	19.94042	
+345	Fresco Apartments	H	50.06375	19.94068	
+346	FROART Jubiler	P	50.06041	19.935002	
+347	Fundacja Instytut Promocji Kultury Polskiej	W	50.064388	19.937447	
+348	Fundacja Książąt Czartoryskich	W	50.064931	19.940349	
+349	Fundacja Mam Marzenie	W	50.061218	19.941898	
+350	Fundacja Promyk Zielony Domek	W	50.063399	19.940904	
+351	Gabinet Psychoterapii "Imago"	W	50.063596	19.934676	
+352	Galeria	P	50.05567	19.938518	
+353	Galeria Autorska Andrzeja Mleczki	W	50.06358	19.93878	
+354	Galeria Bukowski	P	50.06105	19.938787	
+355	Galeria Coco Art Lampert	W	50.06465	19.94105	
+356	Galeria Dyląg	W	50.062486	19.941314	
+357	Galeria Dystans	W	50.0623	19.942466	
+358	Galeria Floriańska 22	W	50.06335	19.94008	
+359	Galeria Grodzka	P	50.05644	19.938067	
+360	Galeria Meble	P	50.0555	19.938559	
+361	Galeria Plakatu	W	50.05989	19.939073	
+362	Galeria Pod Baranami	W	50.06158	19.934936	
+363	Galeria Saint Graal	W	50.064825	19.938199	
+364	Galeria Sztuki	W	50.05813	19.936415	
+365	Galeria Sztuki "Pod Złotym Lewkiem"	W	50.062918	19.9337436	
+366	Galeria Sztuki Współczesnej Strefa A	W	50.06048	19.939374	
+367	Galeria Sztuki XIX w.	W	50.061681	19.937455	
+368	Galeria Turlaja	W	50.06278	19.93815	
+369	Gatget Shop	P	50.06348	19.94017	
+370	Gehanowska "Pod Słońcem"	R	50.062432	19.938413	
+371	Genji Premium Sushi	R	50.06183	19.93466	
+372	Gentleman Barber	P	50.062266	19.941002	
+373	Gift From The Heart	P	50.06089	19.939191	
+374	GLAMOUR Apartment	H	50.06409	19.94063	
+375	Globtroter	H	50.064056	19.936211	
+376	Główny Pałac Sztuki	W	50.063565	19.934228	
+377	Goethe-Institut Krakow	W	50.06071	19.936535	
+378	Golden Oil	P	50.062266	19.941002	
+379	Gologorski Gallery	W	50.05861	19.937834	
+380	Good Food	R	50.05908	19.938726	
+381	Gorące Pączki	R	50.063002	19.934056	
+382	Gorzko Gorzko	R	50.064056	19.936211	
+383	Gospoda HULAJDUSZA	R	50.064056	19.936211	
+384	Gospoda Koko	R	50.06036	19.935196	
+385	Gossip Cafe	R	50.06464	19.93954	
+386	Gościnna Chata	R	50.063776	19.937433	
+387	Gowin & Siuta - architektura | urbanistyka	W	50.063596	19.934676	
+388	Góralskie Praliny	R	50.05981	19.937866	
+389	Grand Hotel	H	50.06338	19.9386	
+390	Grand Hotel	H	50.063679	19.937749	
+391	Grodek hotel	H	50.05808	19.936292	
+392	GRODZKA EXCHANGE	W	50.05763	19.938398	
+393	Grosz	W	50.063133	19.937004	
+394	Gródek	H	50.060902	19.942358	
+395	Gródek	R	50.060902	19.942358	
+396	Gruzińskie Chaczapuri	R	50.061275	19.939229	
+397	Gruzińskie Chaczapuri	R	50.06007	19.937504	
+398	GT Travel Poland	W	50.06465	19.94105	
+399	Happy Socks	P	50.062667	19.940335	
+400	Hard Core Tattoo	W	50.063867	19.937488	
+401	Hard Rock Cafe	R	50.061379	19.938764	
+402	Harley-Davidson	P	50.062074	19.939451	
+403	Harpers Shoes	P	50.06452	19.94125	
+404	HARPERS Shoes	P	50.05633	19.937945	
+405	Harris Piano Jazz Bar	R	50.06175	19.935574	
+406	Hawełka Tetmajerowska	R	50.062534	19.936414	
+407	Hawełka w Pałacu Czeczotka	R	50.0612	19.935142	
+408	HEBE	P	50.06398	19.94085	
+409	Hedonik. Salon fryzjerski	W	50.058	19.937243	
+410	Heima	W	50.06269	19.94314	
+411	Herbapol	P	50.062952	19.93423	
+412	Hexeline	P	50.062629	19.937786	
+413	Heynow Hostel	H	50.062305	19.939539	
+414	Hilary & Hilary Eyecare Eyewear	P	50.061562	19.942583	
+415	Hit Casino	R	50.063596	19.934676	
+416	Hostel al Fresco	H	50.06535	19.937297	
+417	Hostel FAUST	H	50.062878	19.934402	
+418	Hoszowski Optyk	P	50.06399	19.94056	
+419	Hot Chili	R	50.065202	19.938781	
+420	Hotel	H	50.05997	19.936324	
+421	Hotel Amadeus	H	50.061517	19.942196	
+422	Hotel Campanile	H	50.061969	19.943174	
+423	Hotel Class	H	50.062143	19.943563	
+424	Hotel Copernicus	H	50.05623	19.937556	
+425	Hotel Elektor	H	50.063204	19.941402	
+426	Hotel Floryan	H	50.06439	19.94087	
+427	Hotel Francuski	H	50.064985	19.939217	
+428	Hotel Jan	H	50.05969	19.93765	
+429	Hotel Mikołaj	H	50.061533	19.942773	
+430	Hotel pod Różą	H	50.06303	19.9398	
+431	Hotel Pollaner	W	50.06353	19.94161	
+432	Hotel Polski Pod Białym Orłem	H	50.064803	19.940684	
+433	Hotel Saski	H	50.063345	19.937493	
+434	Hotel Senacki	H	50.05731	19.937991	
+435	Hotel Stary	H	50.063128	19.936466	
+436	Hotel św. Norberta	H	50.062234	19.939042	
+437	Hotel Unicus	H	50.06363	19.940722	
+438	Hotel Wawel	H	50.05826	19.939332	
+439	Hotel Wentzl	H	50.06075	19.937021	
+440	HOTEL WIT STWOSZ	H	50.061533	19.942773	
+441	House of Beer	R	50.061945	19.942537	
+442	House of Burger	R	50.062156	19.940903	
+443	Huki Muki	R	50.06357	19.94026	
+444	Huśtawka	R	50.063669	19.936982	
+445	Hyc Hyc	R	50.06205	19.934631	
+446	Ice Station	R	50.064032	19.937926	
+447	III Prywatne Liceum Ogólnokształcące	W	50.064241	19.937853	
+448	Imperial Hotel	H	50.06124	19.935594	
+449	India Masala	R	50.061324	19.940749	
+450	Indus	R	50.064203	19.938071	
+451	Indus Tandoor	R	50.062808	19.940348	
+452	Informacja Tutystyczna	W	50.0646	19.93806	
+453	INGO Aparthotel	H	50.06136	19.94278	
+454	INQUISIO	W	50.063	19.93859	
+455	Instituto Cervantes Krakow	W	50.05662	19.937591	
+456	Instytut Archeologii Uniwersytetu Jagiellońskiego	W	50.06119	19.933612	
+457	Instytut Filozofii Uniwersytetu Jagiellońskiego	W	50.05736	19.938422	
+458	Instytut Nauk Geologicznych PAN Ośrodek Badawczy w Krakowie	W	50.05783	19.936675	
+459	Instytut Socjologii UJ	W	50.057184	19.939622	
+460	Instytut Systematyki i Ewolucji Zwierząt Polskiej Akademii Nauk	W	50.064394	19.938192	
+461	Internat przy Publicznym Liceum Ogólnokształcącym	H	50.062706	19.941001	
+462	Internet Cafe	R	50.06048	19.936484	
+463	Internet Cafe Garinet	R	50.06335	19.94008	
+464	Intro Hostel	H	50.06046	19.936381	
+465	INVITO Pizza & Pasta	R	50.062066	19.942153	
+466	Irish Pub	R	50.06375	19.93885	
+467	ITALIANO Pizza & Pasta	R	50.061081	19.939221	
+468	Ivory Apartments	H	50.062833	19.941001	
+469	IWONA SULIK STUDIO FLORYSTYCZNE	W	50.05798	19.937256	
+470	Jadłodajnia u Stasi	R	50.061414	19.941686	
+471	Jagiellońska s.c. Cukiernia	R	50.062783	19.93513	
+472	Jama Michalika	R	50.06416	19.94098	
+473	Jan Fejkiel Gallery	W	50.063963	19.937457	
+474	Jana 3 Apartments	H	50.06286	19.9385	
+475	Jazz Club u Muniaka	R	50.062179	19.939456	
+476	Jazz Rock Cafe	R	50.063883	19.937491	
+477	Jubiler Pryzmat	P	50.06459	19.94099	
+478	Kacper Ryx	P	50.061877	19.940159	
+479	Kafe Vabank	R	50.05982	19.939101	
+480	Kamienica Hipolitów	W	50.061877	19.940159	
+481	Kancelaria adwokacka	W	50.0632	19.93993	
+482	Kancelaria Notarialna Natalia Leskiewicz	W	50.063669	19.936982	
+483	Kanonicza 22	H	50.05574	19.937201	
+484	Kantor	W	50.064659	19.941851	
+485	Kantor	W	50.064659	19.941851	
+486	Kantor	W	50.064659	19.94153	
+487	Kantor	W	50.0631	19.941314	
+488	Kantor	W	50.06399	19.94056	
+489	Kantor	W	50.0632	19.93993	
+490	Kantor	W	50.062825	19.93965	
+491	Kantor	W	50.062179	19.939456	
+492	Kantor	W	50.065001	19.938698	
+493	Kantor	W	50.06396	19.937623	
+494	Kantor ELADO	W	50.063945	19.937621	
+495	Kantor Trek	W	50.06449	19.94094	
+496	Kantor UnionStandard	W	50.063192	19.936174	
+497	Kantor wymiany walut	W	50.0581	19.938196	
+498	Kantor Wymiany Walut	W	50.063542	19.936079	
+499	Kantor, Jubiler, Łodzińscy	W	50.06049	19.940775	
+500	Kantorcoin	P	50.062266	19.941002	
+501	Karczma "Podwórko Maryny"	R	50.06066	19.938256	
+502	Karma polish cuisine	R	50.06032	19.939281	
+503	Karmello	P	50.05929	19.937619	
+504	Karmello	R	50.06449	19.94094	
+505	Katanè	R	50.06037	19.940946	
+506	Katanè	R	50.064742	19.938418	
+507	Kawiarnia	R	50.0631	19.941314	
+508	Kawiarnia "U Pęcherza"	R	50.06151	19.933851	
+509	Kawiarnia Bankowa	R	50.062234	19.939042	
+510	Kawiarnia Lood&Food	R	50.06041	19.934757	
+511	Kawiarnia Noworolski Cukiernia Ogródek Letni Imprezy Okolicznościowe Wesela	R	50.061395	19.937329	
+512	Kawiarnia Pauza	R	50.06047	19.938938	
+513	Kebab	R	50.06236	19.934981	
+514	Kebab	R	50.062179	19.939456	
+515	Kebab Faraon	R	50.062863	19.934493	
+516	Kebab Królewski	R	50.06357	19.94026	
+517	Kebab Pharaoh	R	50.06083	19.93489	
+518	KFC	R	50.06351	19.94051	
+519	KHAKI - Endurance Shop	P	50.06079	19.938698	
+520	Kiełbasa i Sznurek	R	50.065364	19.937791	
+521	Kino 7D Max & Virtual Reality Kraków	W	50.0643	19.94081	
+522	Kino Pod Baranami	W	50.06149	19.935547	
+523	Kinto's	H	50.064032	19.937926	
+524	Klasztor Dominikanek	W	50.061275	19.943309	
+525	Klasztor Sióstr Prezentek	W	50.06351	19.93898	
+526	Klimex	P	50.064659	19.94153	
+527	Klockoland	W	50.061388	19.942421	
+528	Klub Alternatywy	R	50.061174	19.940656	
+529	Klub Awaria	R	50.061214	19.942083	
+530	Klub Hush live	R	50.06335	19.93795	
+531	Klub Hush Live	R	50.063301	19.937011	
+532	Klub Pasaż	R	50.06049	19.93879	
+533	Klub Pod Jaszczurami	R	50.06084	19.938333	
+534	Klub Rewolucja	R	50.062952	19.93423	
+535	Klub Społem	R	50.06402	19.936521	
+536	kobalt  pottery & more	P	50.05543	19.938794	
+537	Kobe	P	50.062863	19.934493	
+538	Kocyk	S	50.064222	19.942064	
+539	Koliba Pub and grill	R	50.061	19.93908	
+540	KONOPKA	P	50.062397	19.939346	
+541	Konsulat Brytyjski	W	50.061970	19.934137	
+542	Konsulat Generalny Republiki Federalnej Niemiec w Krakowie	W	50.060265	19.938965	
+543	Konsulat Generalny Republiki Francuskiej w Krakowie	W	50.059627	19.938726	
+544	Konsulat Generalny Stanów Zjednoczonych Ameryki w Krakowie	W	50.060132	19.938884	
+545	Kopernik S.A. Sklep firmowy Toruńskich Pierników	P	50.05963	19.937901	
+546	KOSEK Jubiler	P	50.062567	19.935152	
+547	Kościół Dominikanów Świętej Trójcy w Krakowie	W	50.059439	19.939128	
+548	Kościół Matki Boskiej Śnieżnej	W	50.061275	19.943309	
+549	Kościół Przemienienia Pańskiego	W	50.065127	19.939327	
+550	Kościół pw. Świętego Jana Chrzciciela i Świętego Jana Ewangelisty	W	50.06351	19.93898	
+551	Kościół św, Anny w Krakowie	W	50.062125	19.933871	
+552	Kościół św, Apostołów Piotra i Pawła w Krakowie	W	50.056996	19.938817	
+553	Kościół św, Idziego w Krakowie	W	50.055248	19.938164	
+554	Kościół św, Krzyża	W	50.063348	19.943157	
+555	Kościół św, Norberta	W	50.060589	19.934676	
+556	Kościół św. Andrzeja w Krakowie	W	50.056611	19.938395	
+557	Kościół Św. Barbary	W	50.061284	19.9398	
+558	Kościół św. Tomasza Apostoła	W	50.062429	19.940827	
+559	Kościół Świętego Wojciecha	W	50.060909	19.937772	
+560	KRAK-REST	R	50.0578	19.937818	
+561	Krakow - Travel DMC	W	50.056534	19.937412	
+562	Krakow City Apartments	H	50.063886	19.941785	
+563	Krakow Cystersow Garden	R	50.061389	19.937062	
+564	Krakow For You Apartments	H	50.06001	19.937867	
+565	Krakow Souvenirs	P	50.06459	19.94099	
+566	Krakow Souvenirs	P	50.05955	19.937511	
+567	Krakow Souvenirs	R	50.0643	19.94081	
+568	Krakowska Koliba	R	50.06057	19.940501	
+569	Krakowska Manufaktura Czekolady	R	50.062074	19.939451	
+570	Krakowska Szkoła Finansów, Małopolska Izba Rzemiosła i Przedsiębiorczości w Krakowie	W	50.06188	19.934149	
+571	Krakowski Antykwariat Naukowy	P	50.064757	19.938442	
+572	Krakowskie Dougnuts	R	50.05989	19.937839	
+573	Krakowskie Forum Kultury	W	50.06164	19.940916	
+574	Krakowskie Szkoły Policealne	W	50.064241	19.937853	
+575	Krakowskie Towarzystwo Opieki nad Zwierzętami	W	50.06452	19.94125	
+576	Krakowskie Zakąski	R	50.064034	19.937599	
+577	KRAKTEL	W	50.061433	19.940843	
+578	Krakuska Sztuka Ludowa	P	50.062483	19.935353	
+579	Krakville	W	50.06154	19.94118	
+580	Kram s.c.	P	50.061267	19.937139	
+581	Krowarzywa	R	50.063689	19.937717	
+582	Krzyza Residence	H	50.061092	19.941791	
+583	Księgarnia Akademicka	W	50.06164	19.934489	
+584	Księgarnia Archidiecezjalna Kurii Metropolitalnej JDG	P	50.05966	19.935211	
+585	Księgarnia CUD	R	50.061174	19.940656	
+586	Księgarnia Franciszkańska	P	50.05876	19.935457	
+587	Księgarnia na Szewskiej	P	50.062427	19.935519	
+588	Księgarnia św, Stanisława	W	50.059917	19.93464	
+589	KuKu Taiwanese Food & Bubble tea	R	50.06236	19.935244	
+590	KULT Tattoo	P	50.062833	19.941001	
+591	KURANT. Księgarnia Muzyczna, Kawiarnia, Galeria	R	50.062856	19.937061	
+592	Kwadrans	R	50.05862	19.938055	
+593	Kwiaciarnia Teatralna	P	50.063715	19.941752	
+594	L'OCCITANE en Provence	P	50.06311	19.93989	
+595	La Bodega del Ron Bar	R	50.06114	19.938559	
+596	La Fontaine	H	50.062979	19.937188	
+597	La Perle Boutique	P	50.05901	19.939171	
+598	La Petite France	R	50.062833	19.941001	
+599	La Strada Salony	P	50.062377	19.939593	
+600	Lajkonik Piekarnia i Kawiarnia	R	50.064019	19.942	
+601	Lamama	P	50.064553	19.938067	
+602	Lamama Równa Babka	P	50.06481	19.93821	
+603	LEA Clinic	W	50.062095	19.942728	
+604	Leach & Lang Property Consultants	W	50.063301	19.937011	
+605	Legal Cakes	R	50.062272	19.941456	
+606	Legendary Krakow	W	50.06311	19.93989	
+607	Lena Kebab	R	50.062567	19.935152	
+608	Les Perles	P	50.063982	19.939531	
+609	Let's Rock Hostel	H	50.05853	19.938089	
+610	Lilou	P	50.062243	19.94166	
+611	Lindo Pub	R	50.064905	19.938543	
+612	Linen - Natural Collection	P	50.05862	19.938076	
+613	Lody rzemeślnicze	R	50.06384	19.94073	
+614	Lody z Lodziarni	R	50.062552	19.939443	
+615	Lody z Lodziarni Grodzka 13	R	50.05958	19.937661	
+616	Lodziarnia	R	50.063007	19.939114	
+617	Lodziarnia Donizetti	R	50.063265	19.941247	
+618	Lodziarnia Rinella	R	50.062897	19.939527	
+619	Lodziarnia Tiffany Ice Cream	R	50.064056	19.936211	
+620	Logos, Księgarnia naukowa	P	50.05961	19.935999	
+621	Lokaah sklep orientalny	P	50.05947	19.937685	
+622	Lola Lola	P	50.06335	19.94008	
+623	LostBar	R	50.062736	19.934196	
+624	Loża Restaurant & Drink Bar	R	50.062586	19.937861	
+625	LuLu Living	H	50.063466	19.935017	
+626	Luxury Mint Aparthments Main Square	H	50.05997	19.938914	
+627	M22 Burger	R	50.063361	19.941467	
+628	Magia Bar & Cafe	R	50.06159	19.94025	
+629	Magia Bar & Cafe	R	50.061877	19.940159	
+630	Magia Cafe & Bistro	R	50.062082	19.933769	
+631	Magistrat Krakowski	W	50.0582	19.936931	
+632	Magistrat Pub	R	50.05936	19.936861	
+633	Makarun	R	50.063729	19.937232	
+634	Malaga Lunch Bar & Cafe	R	50.06058	19.937985	
+635	Marcelino Polacco	R	50.063208	19.940231	
+636	Maria	S	50.06353	19.94161	
+637	Marmolada	R	50.05997	19.93761	
+638	Max 18	R	50.06073	19.937134	
+639	May Thai Masaż Kraków	W	50.05827	19.938856	
+640	McDonald's	R	50.06461	19.94132	
+641	McDonald's	R	50.05899	19.938042	
+642	Megami Sushi	R	50.0626	19.93829	
+643	Mereszka	P	50.062952	19.93423	
+644	METRUM Restobistro	R	50.061756	19.94309	
+645	MIASTO SZTUKI - Antyki	P	50.06126	19.94198	
+646	Mica, Księgarnia prawnicza	P	50.060439	19.934008	
+647	MICET	W	50.063098	19.935417	
+648	Michal Negrin	P	50.062825	19.93965	
+649	Międzynarodowe Centrum Kultury	W	50.06122	19.935705	
+650	Mikołajczyki Amber Group	P	50.061469	19.937273	
+651	Milkbar Tomasza	R	50.062391	19.941604	
+652	Ministerstwo Śledzia i Wódki	W	50.06382	19.937468	
+653	Miód i Wino	R	50.06526	19.93851	
+654	Mirage	P	50.06154	19.94118	
+655	Mister Kebab	R	50.062813	19.934616	
+656	Mo61 Perfume	W	50.064035	19.937574	
+657	Moaburger	R	50.061362	19.941206	
+658	Monika. Snack - bar. Łypaczewska M.	R	50.062333	19.93625	
+659	Monstelo	P	50.062552	19.939443	
+660	Moo moo restauracja	R	50.05832	19.93972	
+661	Moo Moo Steak & Burger Club	R	50.062223	19.9426	
+662	Moo Moo Steak & Wine	R	50.06061	19.940157	
+663	MooMinky	P	50.063799	19.937812	
+664	Morskie Oko	R	50.063542	19.936079	
+665	Mountain Warehouse	P	50.06409	19.94063	
+666	Movida	R	50.061214	19.942083	
+667	MR 3 Apartments	H	50.061238	19.940677	
+668	Mr Beef Steakhouse and Burger	R	50.05932	19.938297	
+669	Multi Qlti Tap Bar	R	50.062878	19.934402	
+670	Mumerus, Teatr	W	50.05753	19.93733	
+671	Museum Figury Woskowych	W	50.06409	19.94063	
+672	Music Shop. Sklep muzyczny	P	50.05748	19.938465	
+673	Muzeum	W	50.063098	19.943298	
+674	Muzeum Archeologiczne w Krakowie	W	50.05785	19.936092	
+675	Muzeum Archidiecezjalne w Krakowie	W	50.05615	19.937045	
+676	Muzeum Farmacji UJ	W	50.06323	19.94028	
+677	Muzeum Geologiczne Instytutu Nauk Geologicznych PAN	W	50.0577	19.936702	
+678	Muzeum Historycne Miasta Krakowa	W	50.063278	19.941748	
+679	Muzeum Krakowa	W	50.062691	19.936637	
+680	Muzeum Książąt Czartoryskich	W	50.064724	19.940148	
+681	Muzeum Narodowe Kamienica Szołayskich	W	50.063389	19.935921	
+682	Muzeum Narodowe Pałac Biskupa Erazma Ciołka	W	50.056304	19.937289	
+683	Muzeum Narodowe w Krakowie: Sztuka Dawnej Polski	W	50.05629	19.937179	
+684	Muzeum Sztuki	W	50.06111	19.93599	
+685	Muzeum Uniwersytetu Jagiellońskiego Collegium Maius	W	50.06159	19.933939	
+686	Muzeum Żywych Motyli	W	50.05756	19.938365	
+687	Mydlarnia u Franciszka	P	50.0602	19.936054	
+688	Nakielny Cafe	R	50.063081	19.933879	
+689	Nalefka	R	50.064929	19.938635	
+690	Naleśniki	R	50.05766	19.937557	
+691	NANDU	P	50.0604	19.935005	
+692	Niebieskie Migdały Cafe Bistro	R	50.05928	19.937403	
+693	Niewódka	R	50.064241	19.935653	
+694	Night Club VIP	R	50.06164	19.940916	
+695	No7 Restaurant	R	50.06095	19.938239	
+696	Noclegi w apartamentach - WygodneNoce,pl	H	50.0629638	19.9337253	
+697	Non Iron	R	50.063038	19.942051	
+698	Nordic House	H	50.06177	19.934611	
+699	Nota_Resto	R	50.062364	19.942718	
+700	Nova Praxis	W	50.063596	19.934676	
+701	Nowa Prowincja	R	50.06049	19.936084	
+702	Obuwie zdrowotne	P	50.06072	19.936538	
+703	Old City Apartments	H	50.06441	19.942295	
+704	OLD NEW	H	50.063044	19.936606	
+705	Old Town Residence	H	50.0577	19.938696	
+706	Oldmobil - Apartments	H	50.06215	19.941971	
+707	Oldsmobil Pub	R	50.06215	19.941971	
+708	Olsen	P	50.06504	19.93839	
+709	OPInails	P	50.063715	19.941752	
+710	Oprawa obrazów Art Gallery 36	W	50.0643	19.94081	
+711	Optimed	P	50.061943	19.940468	
+712	Optyk Voigt	P	50.05839	19.937749	
+713	ORSAY	P	50.06365	19.94063	
+714	P&J Apartments	H	50.06384	19.94073	
+715	Pałac Bonerowski	H	50.0626	19.93829	
+716	Pałac Lubomirskich	W	50.06439	19.93967	
+717	Pałac Spiski	H	50.062534	19.936414	
+718	Pałac Wodzickich	W	50.06381	19.93919	
+719	Pandora	P	50.05831	19.938219	
+720	Paninoteca Vicenti	R	50.063908	19.936698	
+721	Papieska Akademia Teologiczna, Dom Księży Profesorów	W	50.05593	19.937343	
+722	Papito's Shots & Sliders	R	50.06205	19.934631	
+723	Papryczki 5	R	50.061329	19.941431	
+724	Parafia Ewangelicka św. Marcina w Krakowie	W	50.055762	19.938433	
+725	Parana Kantor Exchange	W	50.05613	19.938072	
+726	Pasaż 13 Vitkac	P	50.06018	19.938022	
+727	Pasieka	P	50.063542	19.936079	
+728	Pasta Bar	R	50.063916	19.938056	
+729	Patrizia Aryton	P	50.063886	19.941785	
+730	Pawilon Wyspiańskiego	W	50.05875	19.937468	
+731	Pawlak Piekarnia	S	50.064664	19.937995	
+732	Pepita	P	50.062863	19.934493	
+733	PeppeShoes	P	50.064659	19.941851	
+734	Pergamin Apartments	H	50.06053	19.936209	
+735	Pergamin Royal Apartments	H	50.05969	19.938007	
+736	Pianola	R	50.05757	19.93761	
+737	Piec Art Acoustic Jazz Club	R	50.06256	19.93472	
+738	Piekarnia i Cukiernia Zaborowscy	R	50.064141	19.937983	
+739	Piekarnia Pawlak	P	50.05903	19.938531	
+740	Pierogarnia Krakowiacy	R	50.062952	19.93423	
+741	Pierogowy Raj	R	50.065046	19.938626	
+742	Pierwszy Lokal na Stolarskiej	R	50.06071	19.939631	
+743	Pijalnia Wódki #2	R	50.062864	19.93409	
+744	Pijalnia Wódki i Piwa	R	50.06422	19.94073	
+745	Pijalnia Wódki i Piwa	R	50.06286	19.9385	
+746	Pijalnie Czekolady E.Wedel	R	50.062256	19.938841	
+747	Pijarska 17 Restaurant & Drink Bar	R	50.064803	19.940684	
+748	Pimiento Argentino Grill	R	50.05976	19.938668	
+749	Pimiento Argentino Grill Kraków Rynek Główny	R	50.06198	19.935772	
+750	PINO	R	50.063159	19.935728	
+751	PITBULL SHISHA BAR	R	50.064187	19.937814	
+752	Piwnica Pod Baranami	R	50.06162	19.93548	
+753	Piwnica pod Kominkiem	R	50.05993	19.935973	
+754	Pizza Dominium	R	50.06103	19.936068	
+755	Pizzatopia	R	50.062912	19.933857	
+756	Pizzeria Cyklop	R	50.061414	19.941686	
+757	Pizzeria Trzy Papryczki	R	50.05809	19.938802	
+758	PKO Bank Polski S,A,-Oddział 7 w Krakowie	W	50.0609	19.936435	
+759	Pod Aniołami	R	50.05831	19.937734	
+760	Pod Aniołkami	R	50.06257	19.934566	
+761	Pod Białym Orłem	R	50.062299	19.938777	
+762	Pod Nosem	R	50.05577	19.937264	
+763	Pod złotym Tygrysem	P	50.062935	19.936821	
+764	Podziemia Rynku Muzeum Historyczne	W	50.061948	19.937798	
+765	Pokoje Leonardo	H	50.060863	19.941681	
+766	Polakowski	R	50.05931	19.937186	
+767	Polar Sport	S	50.06044	19.940736	
+768	Poligrafia Pod Ósemką	P	50.06154	19.94118	
+769	Polonia Wax	W	50.062333	19.93625	
+770	Polska Akademia Nauk	W	50.06454	19.93947	
+771	Polska Akademia Umiejętności	W	50.0643	19.93924	
+772	Polskie Towarzystwo Teologiczne	W	50.057396	19.937329	
+773	Poselska Apartment	H	50.05811	19.93865	
+774	Poselska noclegi	H	50.0583	19.938962	
+775	Pożegnanie z Afryką	S	50.062667	19.940335	
+776	Prałatówka Kościoła Mariackiego	W	50.061828	19.940422	
+777	Promod	P	50.0632	19.93993	
+778	Pronto Pizza & Grill	R	50.05932	19.937946	
+779	Prozak 2.0	R	50.05902	19.938081	
+780	Prywatna Szkoła Podstawowa i VII Prywatne LO im, M, Reja	W	50.05581	19.939054	
+781	Prywatne Gimnazujm nr 5	W	50.064241	19.937853	
+782	Prywatne Liceum Sióstr Prezentek	W	50.06351	19.93898	
+783	Przychodnia NFZ	W	50.063262	19.942779	
+784	Przypiecek	R	50.065238	19.938376	
+785	Pub-Kawiarnia "Albo tak"	R	50.061174	19.940656	
+786	Punkt Informacji Miejskiej	W	50.06278	19.93815	
+787	Puro kamizierm	H	50.05834	19.939302	
+788	Quality Kraków	W	50.06335	19.94008	
+789	Radio ESKA Kraków	W	50.060072	19.934688	
+790	Rainbow	W	50.064056	19.936211	
+791	Rara Avis	P	50.062591	19.941243	
+792	Ratuszowa - kawiarnia	P	50.061405	19.936382	
+793	Re	R	50.060786	19.941404	
+794	Red is bad	P	50.063002	19.934056	
+795	Red Rubin	P	50.05869	19.937887	
+796	Regatta Store	P	50.062635	19.9398	
+797	Relaks craftbeer & food	R	50.062224	19.942253	
+798	Rembrandt Aparthotel	H	50.06041	19.934757	
+799	Residence Floriańskae	H	50.062755	19.939639	
+800	Residence9	R	50.062483	19.935353	
+801	Restauracja & Lounge Bar Sempre Bracka	R	50.06055	19.936223	
+802	Restauracja Amadeus	R	50.061517	19.942196	
+803	Restauracja Bianca	R	50.061917	19.939977	
+804	Restauracja Boscaiola	R	50.06251	19.93477	
+805	Restauracja Cechowa	R	50.06203	19.934392	
+806	Restauracja Czary	R	50.061533	19.942773	
+807	Restauracja Farina	R	50.063982	19.939531	
+808	Restauracja Galicyjska	R	50.065202	19.938781	
+809	Restauracja Kawaleria	R	50.0603	19.935546	
+810	Restauracja Kogel Mogel	R	50.060644	19.940909	
+811	Restauracja La Grande Mamma	R	50.06129	19.935569	
+812	Restauracja Leonardo	R	50.062904	19.941199	
+813	Restauracja McDonald's	R	50.06214	19.935716	
+814	Restauracja Miód Malina	R	50.05806	19.938145	
+815	Restauracja Morela	R	50.0598	19.938653	
+816	Restauracja Padre	R	50.060121	19.934285	
+817	Restauracja Piwnica pod Złotą Pipą	R	50.06399	19.94056	
+818	Restauracja pod Gruszką	R	50.062935	19.936821	
+819	Restauracja Pod Złotym Karpiem	R	50.06053	19.938378	
+820	Restauracja Sławkowska 1	R	50.063061	19.937198	
+821	Restauracja Sukiennice	R	50.061429	19.936916	
+822	Restauracja Szara	R	50.06108	19.938553	
+823	Restauracja Uczta	R	50.05901	19.938918	
+824	Restauracja Wesele	R	50.06061	19.93806	
+825	Restauracja Wierzynek	R	50.06029	19.937307	
+826	Rezydent hotel	H	50.05977	19.937502	
+827	Rękodzieło artystyczne Kraków	W	50.063077	19.940137	
+828	RIN music club	R	50.0626	19.934561	
+829	Rock'n'Roll Tattoo and Piercing Kraków	P	50.06409	19.94063	
+830	Roman Hair & Beauty Salon	P	50.0604	19.935609	
+831	Rosenthal	R	50.063951	19.938887	
+832	Rossman	P	50.06513	19.93831	
+833	Rossmann	P	50.06159	19.941082	
+834	Royal Art.-Tattoo	P	50.06335	19.94008	
+835	ROYAL KANTOR	W	50.062863	19.934493	
+836	Rubin	P	50.062979	19.937188	
+837	RW Żabka	S	50.06485	19.93848	
+838	Rwb Mask	W	50.064246	19.937615	
+839	Ryłko	P	50.06316	19.94022	
+840	Rzeźnia - Ribs on fire - Stare Miasto	R	50.05938	19.938539	
+841	Salon fryzjerski MANIEWSKI	W	50.06032	19.938129	
+842	Salon Kosmetyczny Mimoza	W	50.05794	19.937294	
+843	Salon kosmetyki i bioodnowy	W	50.061325	19.939065	
+844	Salon Ślubny Liwia	P	50.060604	19.941094	
+845	Samui	R	50.06035	19.934644	
+846	Sanktuarium św. Józefa w Krakowie	W	50.058393	19.939565	
+847	Santi Hotel	H	50.05898	19.938917	
+848	Santos	R	50.05549	19.938208	
+849	Sapphire	R	50.061364	19.942177	
+850	SARP. Galeria architektury	W	50.064139	19.935999	
+851	Scandale Royal	R	50.063466	19.935017	
+852	Scandinavian Clinic	W	50.063596	19.934676	
+853	Seemi Beauty Salon	P	50.063886	19.941785	
+854	Sephora	P	50.063077	19.940137	
+855	SERWIS-FOTO	P	50.060742	19.940544	
+856	Sfera Alkohole 24h	S	50.064659	19.941851	
+857	Sherse	P	50.06441	19.942295	
+858	Shisha Bar	R	50.05797	19.937862	
+859	Siesta Café	R	50.06038	19.939364	
+860	Sioux	R	50.06101	19.936111	
+861	SKATE OR DIE	P	50.062878	19.934402	
+862	Sklep “Cepelia”	P	50.06171	19.937333	
+863	Sklep Jubilerski Diament	P	50.05517	19.938581	
+864	SKLEP MILITARIA	P	50.062156	19.940903	
+865	Sklep obuwniczy	P	50.062753	19.934702	
+866	Sklep Pierre Cardin	P	50.05901	19.938372	
+867	Sklep Podróżnika	P	50.062814	19.935379	
+868	Sklep z odzieżą dziecięcą firmy Endo	P	50.0562	19.938173	
+869	Sklep z pamiątkami UJ	P	50.06427	19.94106	
+870	Skład tanich książek	P	50.05751	19.938381	
+871	Skup mBIL-KA Monety Kraków	W	50.06329	19.94031	
+872	Sky Bar	R	50.063128	19.936466	
+873	SŁAWKOWSKA ESTATE SP Z O O	W	50.064897	19.938548	
+874	Słodki Wentzl	R	50.06073	19.936905	
+875	Słodki Wierzynek	P	50.06033	19.937432	
+876	Słodziak	R	50.06485	19.93825	
+877	Słoń Torbalski	P	50.063133	19.937004	
+878	Smak Ukraiński	R	50.0588	19.937711	
+879	Socrates - Liceum dla Dorosłych	W	50.062614	19.935156	
+880	Sol-Tours	W	50.064333	19.937658	
+881	Spar	S	50.05765	19.93823	
+882	Sphinx	R	50.06114	19.93583	
+883	Spokój	R	50.06058	19.936056	
+884	Społem Deluxe	R	50.06452	19.94125	
+885	Stalowe Magnolie	R	50.062107	19.94061	
+886	Starbikes	P	50.062486	19.941314	
+887	Starbucks	R	50.06145	19.935499	
+888	Starbucks	R	50.062986	19.940062	
+889	Starbucks Coffee	R	50.062483	19.935353	
+890	Stare Mury	R	50.064659	19.941851	
+891	Staropolska Karczma	R	50.062378	19.938517	
+892	Staropolskie Trunki	R	50.06328	19.94005	
+893	Stary teatr	W	50.06333	19.93528	
+894	Still bar	R	50.06036	19.935075	
+895	Stodoła	R	50.06416	19.94098	
+896	Stolarnia Kawiarnia	R	50.06054	19.939478	
+897	Strefa Studencka UJ	R	50.06156	19.934322	
+898	Studio Baletowe przy Operze i Operetce	W	50.061902	19.942706	
+899	Studio Filmowe Imperia Film	W	50.057212	19.937329	
+900	Studium Języków Obcych	W	50.062542	19.943639	
+901	Subway	R	50.062681	19.934511	
+902	SUBWAY	R	50.064289	19.937792	
+903	Subway	R	50.06048	19.936381	
+904	Sukiennice	W	50.061602	19.937339	
+905	Suknie Ślubne	P	50.06316	19.94022	
+906	SWATCH	P	50.06386	19.94047	
+907	Sweet Karakow	R	50.05742	19.938355	
+908	SYNCRET Jubiler	P	50.0601	19.936333	
+909	Szalone Widelce	R	50.06441	19.942295	
+910	Szał dla Plastyków	P	50.065127	19.939327	
+911	Szara Gęś w Kuchni	R	50.06049	19.937158	
+912	Szewc. Naprawa obuwia	W	50.05854	19.937817	
+913	Szkoła Podstawowa nr 1	W	50.062817	19.943494	
+914	Szototo bar	R	50.0607	19.938073	
+915	Szpitalna 1	R	50.061952	19.940734	
+916	Świat Herbat	R	50.06442	19.93932	
+917	Świętego Marka 10	W	50.06454	19.937572	
+918	Tabak	P	50.064659	19.941851	
+919	Taco Mexicano	R	50.05826	19.938903	
+920	Taheebo Esencja Natury	R	50.06053	19.94043	
+921	Tally Weijl	P	50.06439	19.94087	
+922	Tango House	H	50.061943	19.940468	
+923	Tao Sweet & Fit	R	50.062935	19.936821	
+924	TARA	P	50.06316	19.94022	
+925	Tattoo Familia - studio tatuażu	W	50.06092	19.939182	
+926	TatuTattoo	W	50.05735	19.938499	
+927	Tatuum	P	50.062856	19.937061	
+928	Tatuum	R	50.062754	19.937394	
+929	Teatr 74	W	50.06081	19.934211	
+930	Teatr Ludowy - Scena pod Ratuszem	W	50.061578	19.936435	
+931	Teatr Odwrócony	W	50.063987	19.937451	
+932	Teatr Słowackiego	H	50.064015	19.942734	
+933	Teatr Zależny	W	50.05745	19.93756	
+934	Teatro Cubano Krakow	R	50.06231	19.934906	
+935	TEB Edukacja	W	50.064222	19.942064	
+936	Terra Art	W	50.06003	19.939205	
+937	Tesoro Cafe	R	50.0583	19.93851	
+938	ThaiBali	W	50.0643	19.94081	
+939	The Legends Music Club	R	50.063044	19.936606	
+940	The Little Havana Party Hostel	H	50.06203	19.934798	
+941	The Mexican	R	50.06422	19.94073	
+942	The Piano Rouge	R	50.062256	19.938841	
+943	The Spaghetti	R	50.06051	19.937191	
+944	Tomasza 20 Resto Bar	R	50.062758	19.940517	
+945	Too Good Apartments	H	50.06389	19.93894	
+946	Tourist Information	W	50.06449	19.94094	
+947	Towarzystwo Przyjaciół Sztuk Pięknych	W	50.063565	19.934228	
+948	Tradycyjne Polskie Smaki	R	50.063783	19.936623	
+949	TramBar	R	50.06042	19.939227	
+950	Tramp Aparthostel	H	50.062095	19.942728	
+951	Trattoria Degusti	R	50.06386	19.94047	
+952	Trattoria La Campana	R	50.05694	19.937474	
+953	Trattoria Soprano	R	50.06182	19.934475	
+954	Tribeca	R	50.063389	19.935921	
+955	Trzy Rybki	R	50.063128	19.936466	
+956	Tutti Frutti	H	50.06336	19.94036	
+957	Twin Peaks Tattoo	P	50.06311	19.93989	
+958	Twoje Soczewki	P	50.063077	19.940137	
+959	Tygodnik Powszechny	W	50.060085	19.934584	
+960	U Babci Maliny	R	50.064222	19.942064	
+961	U Babci Maliny	R	50.064445	19.938248	
+962	U Czarnego Restauracja	R	50.05878	19.937734	
+963	U Górali - Kantor	P	50.06375	19.94068	
+964	U Jožina	R	50.063747	19.93672	
+965	U Kacpra	R	50.06302	19.936932	
+966	U Szwagra	R	50.063729	19.937232	
+967	U zalipianek	R	50.0629638	19.9337253	
+968	Underground Skateshop	P	50.062635	19.9398	
+969	Uniwerstyte Rolniczy	W	50.062542	19.943639	
+970	Uniwersytecka Kolegiata Świętej Anny w Krakowie	W	50.062409	19.933651	
+971	Uniwersyteckie Studium Medycyny Weterynaryjnej	W	50.062542	19.943639	
+972	Uniwersytet Jagielloński Collegium Maius	W	50.0617	19.933409	
+973	Uniwersytet Jagielloński Collegium Medicum	W	50.062	19.933269	
+974	Uniwersytet Jagielloński Instytut Historii Sztuki	W	50.05699	19.937924	
+975	Urara Sushi & Shabu Shabu	R	50.062897	19.939527	
+976	Urząd Miasta Krakowa	W	50.06068	19.941638	
+977	Urząd Miasta Krakowa	W	50.05864	19.936937	
+978	Urząd Pocztowy Kraków 6	P	50.05934	19.936966	
+979	Urząd Skarbowy Kraków-Stare Miasto	W	50.055687	19.938148	
+980	Usług Szklarskich Zbigniew Świerblewski	P	50.060863	19.941681	
+981	Vanilia Travel	W	50.062486	19.941314	
+982	Venetian House	H	50.06058	19.937985	
+983	VERDE Massage & Beauty	P	50.0602	19.936348	
+984	Vesuvio	R	50.06439	19.94087	
+985	Victor Porugal Tattoo Studio	W	50.064004	19.937675	
+986	Vinfort Aparthotel	H	50.062107	19.94061	
+987	Vintage Shop	P	50.06304	19.941522	
+988	Vistula	P	50.062079	19.940831	
+989	Viva la Pinta	R	50.062635	19.9398	
+990	Viva Las Vegas	H	50.063956	19.93791	
+991	VOIGT Optyk	P	50.06416	19.94098	
+992	W Starej Kuchni	R	50.063867	19.936846	
+993	Wedel	R	50.062333	19.93625	
+994	Wierchy	P	50.062952	19.93423	
+995	Winosfera	S	50.063542	19.936079	
+996	Wiśniowy Sad restauracja	R	50.05837	19.937731	
+997	Witaminka	S	50.062591	19.941243	
+998	Włoski Instytut Kultury	W	50.05739	19.937962	
+999	Wojewódzki Urząd Ochrony Zabytków w Krakowie	W	50.055766	19.937185	
+1000	World of Amber	P	50.06399	19.94056	
+1001	Wódka	R	50.061329	19.941431	
+1002	Wójtowicz	P	50.063149	19.941613	
+1003	Wydział Polonistyki Uniwersytetu Jagiellońskiego	W	50.06068	19.934259	
+1004	Wydział Prawa i Administracji Uniwersytetu Jagiellońskiego	W	50.06113	19.932908	
+1005	Wydział Prawa i Administracji Uniwersytetu Jagiellońskiego	W	50.05973	19.936366	
+1006	Wyższe Seminarium Duchowne Franciszkanów w Krakowie	W	50.058653	19.935376	
+1007	Ya-ba da-ba doo	R	50.063044	19.936606	
+1008	Yves Rocher	W	50.05958	19.937886	
+1009	Z Miłości do Natury	P	50.06126	19.94198	
+1010	Zakątek Cafe & Wine bar	R	50.06011	19.937874	
+1011	Zakład Prawa Międzynarodowego Publicznego UJ	W	50.06107	19.93387	
+1012	Zapiecek	R	50.06328	19.94005	
+1013	Zapiekanka Kebab Pizza	R	50.06099	19.938967	
+1014	Zapiekanka/Kebab/Pizza	R	50.061157	19.939049	
+1015	Zapiekanki od 1980 roku	R	50.06086	19.939226	
+1016	Zara	P	50.061379	19.938764	
+1017	Zdrówko	S	50.06316	19.94022	
+1018	Zebra Buty	P	50.06097	19.938292	
+1019	Zegarmistrz,com	P	50.06248	19.934547	
+1020	Zen Sushi	R	50.062203	19.941744	
+1021	Zgromadzenie Sióstr Kanoniczek Ducha Świętegokanoniczki.pl	W	50.062276	19.940749	
+1022	Zgromadzenie zakonne Sióstr Klarysek	W	50.056403	19.938395	
+1023	Zielony Kredens	R	50.060863	19.941681	
+1024	Złota Róża	P	50.062552	19.939443	
+1025	Zoo Pod Mikroskopem	W	50.06311	19.93989	
+1026	Zosia. Salon fryzjerski	W	50.063103	19.941751	
+1027	ZPAF Gallery	W	50.062391	19.941604	
+1028	ZUPA Soup Bar	R	50.063729	19.937232	
+1029	Żabka	S	50.062629	19.937786	
+1030	Żabka	S	50.063974	19.936457	
+1031	Żabka	S	50.06355	19.934953	
+1032	Żarówka Cafe	R	50.06328	19.94005	
+1033	Żłobek nr 1 Samorządowy	W	50.0552	19.937872	
