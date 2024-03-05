@@ -9,6 +9,7 @@ from scripts.cbsim.region import Region
 from scripts.cbsim.request import Request
 from scripts.cbsim.route import Route
 
+
 class Net:
     '''
         Delivery network as the graph model
@@ -25,6 +26,7 @@ class Net:
         self.sdm = np.array([[]])
         # matrix representation
         self.mtx = np.array([[]])
+        self.bbox = None
 
     def __repr__(self):
         res = "The network configuration:\n"
@@ -665,3 +667,17 @@ class Net:
         else:
             # deliveries only by conventional vehicles
             return distances(reqs), []
+
+
+class AreaBoundingBox:
+    def __init__(self, longitude_west: float, longitude_east: float, latitude_south: float, latitude_north: float):
+        self.longitude_west: float = longitude_west
+        self.longitude_east: float = longitude_east
+        self.latitude_south: float = latitude_south
+        self.latitude_north: float = latitude_north
+
+    def __str__(self):  # should be "(lat_south,long_west,lat_north,long_east)"
+        return f"({self.latitude_south},{self.longitude_west},{self.latitude_north},{self.longitude_east})"
+
+    def tuple_bbox(self):
+        return self.latitude_north, self.latitude_south, self.longitude_east, self.longitude_west
