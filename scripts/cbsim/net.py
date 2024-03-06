@@ -31,9 +31,9 @@ class Net:
     def __repr__(self):
         res = "The network configuration:\n"
         for lnk in self.links:
-            res += "{0} -> {1}: {2}\n".format(lnk.out_node.nid,\
-                                                lnk.in_node.nid,\
-                                                round(lnk.weight, 3))
+            res += "{0} -> {1}: {2}\n".format(lnk.out_node.nid, \
+                                              lnk.in_node.nid, \
+                                              round(lnk.weight, 3))
         return res
 
     def contains_node(self, nid):
@@ -53,7 +53,7 @@ class Net:
             if n.nid == nid:
                 return n
         return None
-    
+
     def contains_region(self, code):
         '''
             Determines if the network contains a region with the specified code
@@ -62,7 +62,7 @@ class Net:
             if region.code == code:
                 return True
         return False
-    
+
     def get_region(self, code):
         '''
             Returns the first found region with the specified code
@@ -70,8 +70,8 @@ class Net:
         for region in self.regions:
             if region.code == code:
                 return region
-        return None  
-    
+        return None
+
     def contains_link(self, out_node, in_node):
         '''
             Checks if the net contains a link
@@ -139,7 +139,7 @@ class Net:
 
     @property
     def to_matrix(self):
-        self.nodes.sort(key=lambda nd: nd.nid) # sort the nodes!
+        self.nodes.sort(key=lambda nd: nd.nid)  # sort the nodes!
         mtx = np.array([[np.inf for _ in self.nodes] for __ in self.nodes])
         for nd in self.nodes:
             mtx[nd.nid][nd.nid] = 0
@@ -149,7 +149,7 @@ class Net:
 
     def floyd_warshall(self, nodes):
         nodes.sort(key=lambda nd: nd.nid)
-        #print([nd.nid for nd in nodes])
+        # print([nd.nid for nd in nodes])
         g = np.array([[np.inf for _ in nodes] for __ in nodes])
         for nd in nodes:
             g[nd.nid][nd.nid] = 0
@@ -162,7 +162,7 @@ class Net:
                     if g[ni.nid][nj.nid] > dist:
                         g[ni.nid][nj.nid] = dist
         return g
-    
+
     def gps_distance(self, node1, node2):
         ''' 
             Haversine formula
@@ -179,11 +179,11 @@ class Net:
                  math.cos(math.radians(lat2)) * \
                  math.sin(0.5 * dlon) * math.sin(0.5 * dlon))
             res = round(2 * Earth_radius * \
-                            math.atan2(math.sqrt(a), math.sqrt(1 - a)), 3)
+                        math.atan2(math.sqrt(a), math.sqrt(1 - a)), 3)
         return res
-    
+
     def gen_requests(self, sender=None, nodes=[], probs={}, s_weight=Stochastic()):
-        #self.demand = []
+        # self.demand = []
         requests = []
         for node in nodes:
             if random.random() < probs[node.type]:
@@ -208,7 +208,7 @@ class Net:
         clients = [nd for nd in self.nodes if nd.type != 'N' and nd.type != 'L']
         rcodes = [r.code for r in self.regions]
         _requests, reqs = [], []
-        _total = sum(flows.values()) # total number of requests to generate
+        _total = sum(flows.values())  # total number of requests to generate
         _odm = np.matrix([
             [0 for r in self.regions]
             for f in flows
@@ -232,10 +232,10 @@ class Net:
             reqs = requests
 
         # 2) choose origin (inlet) according to provided flows
-        
+
         # 2.1) define probabilities for origins to be assigned to the requests
-        ps = {} # { req: {inlet.nid: normalized(1/distance^2)} } probability 
-                # { rgn: {inlet.nid: normalized(1/distance^2)} } part of requests for traditional
+        ps = {}  # { req: {inlet.nid: normalized(1/distance^2)} } probability
+        # { rgn: {inlet.nid: normalized(1/distance^2)} } part of requests for traditional
         if traditional:
             # calculate attractions for the set of generated requests
             for req in reqs:
@@ -248,13 +248,13 @@ class Net:
                     orgn = self.nodes[f]
                     dst = self.get_region(r)
                     i, j = list(flows.keys()).index(f), rcodes.index(r)
-                    _srf[i, j] = 1 / self.gps_distance(orgn, dst)**2
+                    _srf[i, j] = 1 / self.gps_distance(orgn, dst) ** 2
                     # _srf[i, j] = 1.0
             # print(_srf)
             # calculate ODM by using gravitation model
             # denoms = [sum([len(_attrs[j]) * _srf[i, j] for j in range(len(self.regions))]) 
             #           for i in range(len(flows))]
-            denoms = [sum([flows[list(flows.keys())[i]] * _srf[i, j] for i in range(len(flows))]) 
+            denoms = [sum([flows[list(flows.keys())[i]] * _srf[i, j] for i in range(len(flows))])
                       for j in range(len(self.regions))]
             # print(denoms)
             for f in flows.keys():
@@ -271,13 +271,13 @@ class Net:
                 ds = {}
                 dest = req.destination.closest_itsc
                 for f in flows.keys():
-                    orgn = self.nodes[f] 
+                    orgn = self.nodes[f]
                     ds[f] = self.sdm[orgn.nid, dest.nid] + self.gps_distance(dest, req.destination)
-                sum_p = sum([1/d**2 for d in ds.values()])
+                sum_p = sum([1 / d ** 2 for d in ds.values()])
                 for f in ds.keys():
-                    ds[f] = (1 / ds[f]**2) / sum_p
+                    ds[f] = (1 / ds[f] ** 2) / sum_p
                 ps[req] = ds
-        
+
         # 2.2) assign origins
         if traditional:
             for f in flows.keys():
@@ -292,7 +292,7 @@ class Net:
                         assigned += 1
                         empty = len(_attrs[j]) == 0
                         # print(i, j, _odm[i, j], assigned)
-        else: # proposed
+        else:  # proposed
             for f in flows.keys():
                 assigned = 0
                 while assigned < flows[f]:
@@ -303,7 +303,7 @@ class Net:
                         req.origin = self.get_node(f)
                         _requests.append(req)
                         assigned += 1
-        
+
         # 2.3) generate consingment weight (for routing procedure)
         # TODO: depends on the client's type?
         for req in _requests:
@@ -395,12 +395,12 @@ class Net:
         def is_head_or_tail(nd):
             rt = route_of(nd)
             return rt is not None and (is_in_head(nd, rt) or is_in_tail(nd, rt))
-        
-        routes = [] # the calculated routes
-        n = len(self.nodes) # number of nodes in the net
+
+        routes = []  # the calculated routes
+        n = len(self.nodes)  # number of nodes in the net
 
         # choose only requests with sender as origin
-        sender = self.get_node(sender_id) # sernder's node
+        sender = self.get_node(sender_id)  # sernder's node
         from_sender = []
         for rqst in requests:
             if rqst.origin is sender:
@@ -410,17 +410,17 @@ class Net:
         combined_weights = [0 for _ in range(n)]
         for rqst in from_sender:
             combined_weights[rqst.destination.nid] += rqst.weight
-        combined = [] # set of requests combined by consignees
+        combined = []  # set of requests combined by consignees
         consignee_ids = []
         for i in range(n):
             if combined_weights[i] > 0:
                 combined.append(Request(combined_weights[i],
-                                            sender, self.get_node(i)))
+                                        sender, self.get_node(i)))
                 consignee_ids.append(i)
         if verbose: print(sender_id, consignee_ids)
         # number of consignees
         m = len(consignee_ids)
-        
+
         itsc_id = lambda nid: self.get_node(consignee_ids[nid]).closest_itsc.nid
 
         # get SDM for the routing problem
@@ -446,7 +446,7 @@ class Net:
         if verbose: print("\nCalculating the wins matrix...")
         start_time = time.time()
         s = np.array([[0.0 for _ in range(m)]
-                      for __ in range(m)]) # wins matrix
+                      for __ in range(m)])  # wins matrix
         for i in range(m):
             for j in range(m):
                 if j < i:
@@ -473,8 +473,8 @@ class Net:
             r2 = route_of(nd2)
             # conditions to be fulfilled for segments merging
             if not are_in_same_route(nd1, nd2) and \
-                is_head_or_tail(nd1) and is_head_or_tail(nd2) and \
-                r1.weight + r2.weight <= capacity:
+                    is_head_or_tail(nd1) and is_head_or_tail(nd2) and \
+                    r1.weight + r2.weight <= capacity:
                 # checking the side before merging
                 if r1.size > 1:
                     if is_in_tail(nd1, r1):
@@ -560,7 +560,7 @@ class Net:
         self.sdm = self.floyd_warshall(nodes)
 
     def auto_regions(self, inlets):
-        self.regions = [] # reset
+        self.regions = []  # reset
         # define zones - one per each inlet
         zones = list(range(len(inlets)))
         for z in zones:
@@ -568,17 +568,17 @@ class Net:
             region = Region(code=z, name=reg_name)
             self.regions.append(region)
         #
-        itscs = [node for node in self.nodes if node.type == 'N'] # intersections
-        inodes = [self.get_node(inlet) for inlet in inlets] # inlet nodes
+        itscs = [node for node in self.nodes if node.type == 'N']  # intersections
+        inodes = [self.get_node(inlet) for inlet in inlets]  # inlet nodes
         for itsc in itscs:
             # get closest inlet
             closest, dist = None, float('inf')
             for z in zones:
-                d = self.gps_distance(inodes[z], itsc) # get sdm distance?
+                d = self.gps_distance(inodes[z], itsc)  # get sdm distance?
                 if d < dist:
                     dist = d
                     closest = z
-            itsc.region = self.get_region(closest)        
+            itsc.region = self.get_region(closest)
 
     def set_regions(self):
         itscs = [node for node in self.nodes if node.type == 'N']
@@ -607,12 +607,12 @@ class Net:
         self.regions.sort(key=lambda r: r.code)
 
     def simulate(self, requests=[], outlets=None, loadpoints=None, capacity=0.15):
-        
+
         def distances(rs, toloadpoint=False):
             ds = []
-            if toloadpoint: # deliveries to loadpoints only
+            if toloadpoint:  # deliveries to loadpoints only
                 # get loadpoint nodes
-                lps = [] # loadpoint nodes
+                lps = []  # loadpoint nodes
                 for loadpoint in loadpoints:
                     lp = self.get_node(loadpoint)
                     if lp is not None:
@@ -636,7 +636,7 @@ class Net:
                     back = min(outds) if len(outds) > 0 else 0
                     ds.append(direct + back)
                     # print(closest, direct, back)
-            else: # deliveries to clients
+            else:  # deliveries to clients
                 for req in rs:
                     # distance from the closest intersection to client
                     dcl = self.gps_distance(req.destination.closest_itsc, req.destination)
@@ -650,13 +650,13 @@ class Net:
                             outds.append(self.sdm[req.destination.closest_itsc.nid][outnode.closest_itsc.nid])
                     back = min(outds) if len(outds) > 0 else 0
                     ds.append(direct + 2 * dcl + back)
-                    #print(direct, dcl, back)
+                    # print(direct, dcl, back)
             return ds
 
         reqs = requests[:]
         breqs, dreqs = [], []
 
-        if loadpoints is not None: # if bikes are used as alternative mode of transport
+        if loadpoints is not None:  # if bikes are used as alternative mode of transport
             # select requests to be delivered not by bikes
             for req in reqs:
                 if req.weight < capacity:
@@ -667,6 +667,18 @@ class Net:
         else:
             # deliveries only by conventional vehicles
             return distances(reqs), []
+
+    def set_closest_itsc(self):
+        itscs = [node for node in self.nodes if node.type == 'N']
+        for node in self.nodes:
+            closest, dist = node, float('inf')
+            if not node in itscs:
+                for itsc in itscs:
+                    d = self.gps_distance(node, itsc)
+                    if d < dist:
+                        dist = d
+                        closest = itsc
+                node.closest_itsc = closest
 
 
 class AreaBoundingBox:

@@ -1,4 +1,5 @@
 import webbrowser, folium, numpy as np, geopandas as gpd
+
 from shapely.geometry.polygon import Polygon
 
 
@@ -19,6 +20,8 @@ def draw_results(net):
 
     nodes_group = folium.FeatureGroup("Nodes").add_to(m)
 
+    businesses_group = folium.FeatureGroup("Businesses").add_to(m)
+
     for single_node in net.nodes:
         if single_node.type == "N":
             folium.Circle(
@@ -28,8 +31,16 @@ def draw_results(net):
                 popup=f"{single_node.name},\nX:{single_node.x}\nY:{single_node.y}",
                 color="green",
                 fillColor="green"
-
             ).add_to(nodes_group)
+        else:
+            folium.Circle(
+                radius=5,
+                location=[single_node.y, single_node.x],
+                tooltip=single_node.name,
+                popup=f"{single_node.name},\nType:{single_node.type}\nX:{single_node.x}\nY:{single_node.y}\n ITSC:{single_node.closest_itsc.name}",
+                color="blue",
+                fillColor="blue"
+            ).add_to(businesses_group)
 
     links_group = folium.FeatureGroup("Links").add_to(m)
 
