@@ -27,6 +27,7 @@ class Net:
         # matrix representation
         self.mtx = np.array([[]])
         self.bbox = None
+        self.vehicles = None
 
     def __repr__(self):
         res = "The network configuration:\n"
@@ -182,14 +183,14 @@ class Net:
                         math.atan2(math.sqrt(a), math.sqrt(1 - a)), 3)
         return res
 
-    def gen_requests(self, sender=None, nodes=[], probs={}, s_weight=Stochastic()):
+    def gen_requests(self, sender=None, nodes=[], probs={}, s_weight=Stochastic(), s_dimensions=Stochastic()):
         # self.demand = []
         requests = []
         for node in nodes:
             if random.random() < probs[node.type]:
-                rqst = Request()
-                rqst.origin, rqst.destination = sender, node
-                rqst.weight = s_weight.value()
+                rqst = Request(weight=round(s_weight.value()), length=round(s_dimensions.value()),
+                               width=round(s_dimensions.value()), height=round(s_dimensions.value()), orgn=sender,
+                               dst=node)
                 requests.append(rqst)
         print("Demand generation for {} completed: {} requests generated.".format(sender,
                                                                                   len(requests)))

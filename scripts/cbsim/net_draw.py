@@ -28,7 +28,7 @@ def draw_results(net):
                 radius=5,
                 location=[single_node.y, single_node.x],
                 tooltip=single_node.name,
-                popup=f"{single_node.name},\nX:{single_node.x}\nY:{single_node.y}",
+                popup=f"{single_node.name},\nX:{single_node.x}\nY:{single_node.y}\nnid:{single_node.nid}",
                 color="green",
                 fillColor="green"
             ).add_to(nodes_group)
@@ -37,7 +37,7 @@ def draw_results(net):
                 radius=5,
                 location=[single_node.y, single_node.x],
                 tooltip=single_node.name,
-                popup=f"{single_node.name},\nType:{single_node.type}\nX:{single_node.x}\nY:{single_node.y}\n ITSC:{single_node.closest_itsc.name}",
+                popup=f"{single_node.name},\nType:{single_node.type}\nX:{single_node.x}\nY:{single_node.y}\n ITSC:{single_node.closest_itsc.name}\nnid:{single_node.nid}",
                 color="blue",
                 fillColor="blue"
             ).add_to(businesses_group)

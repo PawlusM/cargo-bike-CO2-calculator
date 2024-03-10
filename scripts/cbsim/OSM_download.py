@@ -49,8 +49,6 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
             net.add_link(in_id=single_link_index[0], out_id=single_link_index[1],
                          weight=links_dict[single_link_index]['length'] / 1000)
 
-
-
     else:
 
         nodes_dict = dict(G.nodes)
