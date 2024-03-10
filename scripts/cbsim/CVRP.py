@@ -20,10 +20,11 @@ def prepare_data(n: net.Net):
     vehicle_count_volume = sum_volumes / n.vehicles.cargo_volume
 
     # TODO change to max()
-    if vehicle_count_weight >= vehicle_count_volume:
-        n.vehicles.count = ceil(vehicle_count_weight)
-    else:
-        n.vehicles.count = ceil(vehicle_count_volume)
+    if n.vehicles.count == 0:
+        if vehicle_count_weight >= vehicle_count_volume:
+            n.vehicles.count = ceil(vehicle_count_weight)
+        else:
+            n.vehicles.count = ceil(vehicle_count_volume)
 
     n.vehicles.capacities = []
     n.vehicles.volumes = []
@@ -83,11 +84,11 @@ def prepare_data(n: net.Net):
         orders['height'].append(singleOrder.height)
         orders['volume'].append(singleOrder.volume)
 
-    return data, orders, requests_sdm
+    return data, orders, requests_sdm, n
 
 
 def solve(n: net.Net, timeout):
-    data, orders, distance_matrix = prepare_data(n)
+    data, orders, distance_matrix, n = prepare_data(n)
     manager = pywrapcp.RoutingIndexManager(len(distance_matrix), data['num_vehicles'], data['depotID'])
 
     routing = pywrapcp.RoutingModel(manager)
@@ -182,7 +183,7 @@ def solve(n: net.Net, timeout):
     else:
         print("No solutions")
 
-    return routes, distances
+    return routes, distances, n
 
 
 def initialize_collector(data, manager, routing, distance_matrix):
