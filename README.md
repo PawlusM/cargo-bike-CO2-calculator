@@ -16,7 +16,7 @@ The Cargo Bike CO2 Calculator project aims to provide a tool for comparing the C
 - **Programming Language**: Python
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/yourusername/cargo-bike-co2-calculator.git`
+1. Clone the repository: `git clone https://github.com/PawlusM/cargo-bike-CO2-calculator.git`
 2. Navigate to the project directory: `cd cargo-bike-co2-calculator`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Run the application: `python main.py`
