@@ -32,9 +32,19 @@ def draw_results(net):
                 color="green",
                 fillColor="green"
             ).add_to(nodes_group)
+        elif single_node.type == "L":
+            folium.Circle(
+                radius=10,
+                location=[single_node.y, single_node.x],
+                tooltip=single_node.name,
+                popup=f"{single_node.name},\nX:{single_node.x}\nY:{single_node.y}\nnid:{single_node.nid}",
+                color="red",
+                fillColor="red"
+            ).add_to(nodes_group)
+
         else:
             folium.Circle(
-                radius=5,
+                radius=3,
                 location=[single_node.y, single_node.x],
                 tooltip=single_node.name,
                 popup=f"{single_node.name},\nType:{single_node.type}\nX:{single_node.x}\nY:{single_node.y}\n ITSC:{single_node.closest_itsc.name}\nnid:{single_node.nid}",

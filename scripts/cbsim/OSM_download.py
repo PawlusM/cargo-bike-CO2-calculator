@@ -1,17 +1,39 @@
 import networkx
 import networkx as nx
 import osmnx as ox
+import shapely
 
 from scripts.cbsim.node import Node
+from scripts.cbsim.net import AreaBoundingPolygon, AreaBoundingBox
 
 ox.settings.use_cache = True
 
 
 def generate_network(net, type: str = "bike", draw_network: bool = False, simplify: bool = False,
                      simplify_tolerance: int = 15):
-    assert net.bbox is not None, "No bounding box"
-    # download street network data from OSM and construct a MultiDiGraph model
-    G = ox.graph.graph_from_bbox(bbox=net.bbox.tuple_bbox(), network_type=type)
+    assert (net.bbox is not None) or (net.polygon is not None), "No location given"
+
+    if net.polygon is None and net.bbox is not None:  # convert bbox to polygon
+        points = net.bbox.convert_to_polygon_points()
+        net.polygon = AreaBoundingPolygon(points)
+
+    if net.bbox is None:
+        lon_min, lon_max = net.polygon.points[0][0]
+        lat_max, lat_min = net.polygon.points[0][1]
+        for point in net.polygon.points:
+            if point[0] < lon_min:
+                lon_min = point[0]
+            if point[0] > lon_max:
+                lon_max = point[0]
+            if point[1] < lat_min:
+                lat_min = point[1]
+            if point[1] > lat_max:
+                lat_max = point[1]
+
+        net.bbox = AreaBoundingBox(longitude_west=lon_min, longitude_east=lon_max, latitude_south=lat_min,
+                                   latitude_north=lat_max)
+
+    G = ox.graph_from_polygon(net.polygon.geometry, network_type=type, truncate_by_edge=False)
 
     # impute edge (driving) speeds and calculate edge travel times
     G = ox.speed.add_edge_speeds(G)

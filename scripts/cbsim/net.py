@@ -1,6 +1,7 @@
 import math, random
 import time
 import numpy as np
+import shapely
 
 from scripts.cbsim.stochastic import Stochastic
 from scripts.cbsim.node import Node
@@ -27,6 +28,7 @@ class Net:
         # matrix representation
         self.mtx = np.array([[]])
         self.bbox = None
+        self.polygon = None
         self.vehicles = None
 
     def __repr__(self):
@@ -694,3 +696,32 @@ class AreaBoundingBox:
 
     def tuple_bbox(self):
         return self.latitude_north, self.latitude_south, self.longitude_east, self.longitude_west
+
+    def convert_to_polygon_points(self):
+        points = ((self.longitude_west, self.latitude_north),
+                  (self.longitude_east, self.latitude_north),
+                  (self.longitude_east, self.latitude_south),
+                  (self.longitude_west, self.latitude_south))
+        return points
+
+
+class AreaBoundingPolygon:
+    def __init__(self, coordinates: tuple):
+        self.points: tuple = coordinates  # ((long, lat),(...))
+        self.geometry = shapely.geometry.Polygon(self.points)
+
+    def create_osm_area(self):
+        # 'poly: "50.0661 19.9361 50.0655 19.9419 50.0644 19.9447 50.0609 19.9436 50.0587 19.9406\
+        #                50.0546 19.9389 50.0555 19.9375 50.0557 19.9352 50.0589 19.9334 50.0619 19.9319"'
+        string = 'poly: "'
+        for point in self.points:
+            string += '{:.4f}'.format(round(point[1], 4))
+            string += ' '
+            string += '{:.4f}'.format(round(point[0], 4))
+            string += ' '
+            # string += f'{point[1]} {point[0]} '
+
+        string = string[:-1]
+        string += '"'
+
+        return string

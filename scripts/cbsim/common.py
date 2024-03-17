@@ -1,4 +1,4 @@
-import pickle, json
+import pickle, json, csv
 
 
 def save_results(filename: str, results):
@@ -21,3 +21,13 @@ def load_dict_from_json(filename):
 def save_dict_to_json(dict, filename):
     with open(filename, 'a') as file:
         file.write(json.dumps(dict))
+
+
+def load_csv(filename: str):
+    data = []
+    with open(filename, 'r') as file:
+        reader = csv.DictReader(file, delimiter='\t')
+        for line in reader:
+            data.append(line)
+
+    return data

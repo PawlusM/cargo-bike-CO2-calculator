@@ -65,7 +65,7 @@ def prepare_data(n: net.Net):
     for i in range(0, data['num_vehicles']):
         data['vehicle_load'].append(0)
 
-    print(f"Number of vehicles: {data['num_vehicles']}")
+    print(f"T: {n.thread} Number of vehicles: {data['num_vehicles']}")
 
     orders = {
         "ID": [0],  # 0 is the depot

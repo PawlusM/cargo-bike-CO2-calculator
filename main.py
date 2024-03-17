@@ -1,6 +1,6 @@
 import time
 
-from scripts.cbsim import OSM_download, net, net_draw, node, stochastic, common, vehicles, CVRP
+from scripts.cbsim import OSM_download, net, net_draw, node, stochastic, common, vehicles, CVRP, get_OSMbusinesses
 from datetime import datetime
 from pathlib import Path
 import multiprocessing as mp
@@ -8,6 +8,7 @@ import os
 
 
 def listener(q):
+    counter = 0
     while True:
         message = q.get()
 
@@ -15,7 +16,7 @@ def listener(q):
         if message == "kill":
             print("kill")
             break
-
+        counter += 1
         N, bike_routes, bike_distances, min_bike_distance, van_routes, van_distances, min_van_distance = message
 
         now = datetime.now()
@@ -24,7 +25,7 @@ def listener(q):
         results_path = absolute_folder_path + '/' + "results.csv"
         if not (os.path.isfile(results_path)):
             with open(results_path, 'w') as f:
-                f.write("datetime,bike_count,bike_total_distance,van_count,van_total_distance\n")
+                f.write("datetime;bike_count;bike_total_distance;van_count;van_total_distance\n")
 
         with open(results_path, 'a') as f:
             f.write(
@@ -36,9 +37,10 @@ def listener(q):
         common.save_results(common_path + "_van_routes.pkl", van_routes)
 
 
-def experiment(N, thread, q):
+def experiment(N, thread, q, experiment_count):
     N.thread = thread
-    while True:
+
+    for interator in range(experiment_count):
         N.demand = []
         N.gen_requests(sender=lpoints[0], nodes=N.nodes, probs=probs, s_weight=s_weight, s_dimensions=s_dimensions)
         print(f"T{thread}: bike:")
@@ -55,7 +57,7 @@ def experiment(N, thread, q):
                 N.vehicles.count = N.vehicles.count + 1
                 print(f"T{thread}: adding bike {N.vehicles.count}")
 
-        print(f"T{thread}: best bike distance: {min_bike_distance}\n")
+        print(f"T{thread}: best total bike distance: {min_bike_distance}\n")
 
         print(f"T{thread}: van:")
         min_van_distance = -1
@@ -71,46 +73,87 @@ def experiment(N, thread, q):
                 N.vehicles.count = N.vehicles.count + 1
                 print(f"T{thread}: adding van {N.vehicles.count}")
 
-        print(f"T{thread}: best van distance: {min_van_distance}\n")
+        print(f"T{thread}: best total van distance: {min_van_distance}\n")
         result = N, bike_routes, bike_distances, min_bike_distance, van_routes, van_distances, min_van_distance
         q.put(result)
+
 
 if __name__ == "__main__":
 
     N = net.Net()
 
-    N.bbox = net.AreaBoundingBox(longitude_west=19.9300, longitude_east=19.94537, latitude_south=50.05395,
+    N.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
                                  latitude_north=50.06631)
 
     N = OSM_download.generate_network(net=N, simplify=True, simplify_tolerance=10, draw_network=False)
 
-    N.sdm = N.floyd_warshall(N.nodes)
+    load_point = node.Node(nid=0, name="Load Point")
+    load_point.x = 19.9391056
+    load_point.y = 50.06626309999999
+    load_point.type = 'L'
+
+    N.nodes.append(load_point)
+
+    N.sdm = N.floyd_warshall(N.nodes)  # sdm with intersection only
+
+    file_path = "data/temp_nodes.csv"
+
+    get_OSMbusinesses.get_clients([N.polygon.create_osm_area()], file_path)
+    businesses = common.load_csv(file_path)
 
     max_index = len(N.nodes) - 1
 
-    # TODO add business downloader
-    with open("data/rynek_nodes.txt") as file:
-        for line in file:
-            data = line.split('\t')
-            max_index = max_index + 1
-            new_node = node.Node(nid=max_index, name=data[1])
-            new_node.type = data[2]
-            new_node.y = float(data[3])
-            new_node.x = float(data[4])
-            N.nodes.append(new_node)
-    #  File read will be removed when the business downloader is complete
+    for business in businesses:
+        assert len(business) == 11
+
+        if business['NAME'] == '':  # there are some empty businesses
+            continue
+
+        max_index = max_index + 1
+        new_node = node.Node(nid=max_index, name=business['NAME'])
+
+        for type in [business['AMENITY'], business['SHOP'], business['TOURISM'], business['OFFICE']]:
+            if type == "":
+                continue
+            if type in get_OSMbusinesses.L_B:
+                new_node.type = 'L_B'
+                break
+            elif type in get_OSMbusinesses.F_D:
+                new_node.type = 'F_D'
+                break
+            elif type in get_OSMbusinesses.C_S:
+                new_node.type = 'C_S'
+                break
+            elif type in get_OSMbusinesses.O_S:
+                new_node.type = 'O_S'
+                break
+            elif type in get_OSMbusinesses.O:
+                new_node.type = 'O'
+                break
+            else:
+                new_node.type = 'V_S'
+
+        new_node.y = float(business['X'])
+        new_node.x = float(business['Y'])
+        N.nodes.append(new_node)
+
+
     N.set_closest_itsc()
 
+    # net_draw.draw_results(N)
+
     # TODO add better probs weights and dimensions, pack this into another file
-    probs = {'R': 0.3, 'H': 0.1, 'S': 0.4, 'P': 0.15, 'W': 0.05, "B": 0.3, "K": 0.1, "Ks": 0.1, 'N': 0, 'L': 0}
+    probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
 
     weightLaw = 0  # 0 - rectangular, 1 - normal, 2 - exponential
     weightLocation = 0  # grams
-    weightScale = 20000
+    weightScale = 25000  # 25kg for UPS, InPost, 31,5 kg for for DPD, DHL
 
     dimensionsLaw = 0
     dimensionsLocation = 0  # mm
     dimensionsScale = 400
+
+    experiment_per_thread = 10
 
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=weightScale)
     s_dimensions = stochastic.Stochastic(law=dimensionsLaw, location=dimensionsLocation, scale=dimensionsScale)
@@ -128,14 +171,14 @@ if __name__ == "__main__":
 
     manager = mp.Manager()
     q = manager.Queue()
+
     pool = mp.Pool(mp.cpu_count() + 2)
 
     watcher = pool.apply_async(listener, (q,))
 
     jobs = []
     for i in range(mp.cpu_count()):
-        temp_N = N
-        job = pool.apply_async(experiment, args=(temp_N, i, q))
+        job = pool.apply_async(experiment, args=(N, i, q, experiment_per_thread))
         jobs.append(job)
 
     for job in jobs:
