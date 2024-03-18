@@ -1,4 +1,4 @@
-datetime,bike_count,bike_total_distance,van_count,van_total_distance
+datetime;bike_count;bike_total_distance;van_count;van_total_distance
 2024_03_17_22_24_27_1710710667;16;37099;2;14456
 2024_03_17_22_24_27_1710710667;17;39433;2;15570
 2024_03_17_22_24_28_1710710668;18;42085;2;17657

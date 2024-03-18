@@ -48,7 +48,7 @@ def experiment(N, thread, q, experiment_count):
 
         N.vehicles = N.bikes
         while min_bike_distance == -1:
-            bike_routes, bike_distances, N = CVRP.solve(N, timeout=100)
+            bike_routes, bike_distances, N = CVRP.solve(N, timeout=200)
             bike_total_distances = CVRP.calculate_total_distances(bike_distances)
             try:
                 min_bike_distance = min(bike_total_distances)
@@ -63,7 +63,7 @@ def experiment(N, thread, q, experiment_count):
         min_van_distance = -1
         N.vehicles = N.vans
         while min_van_distance == -1:
-            van_routes, van_distances, N = CVRP.solve(N, timeout=100)
+            van_routes, van_distances, N = CVRP.solve(N, timeout=200)
             van_total_distances = CVRP.calculate_total_distances(van_distances)
 
             try:
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     N.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
                                  latitude_north=50.06631)
 
-    N = OSM_download.generate_network(net=N, simplify=True, simplify_tolerance=10, draw_network=False)
+    N = OSM_download.generate_network(net=N, simplify=False, simplify_tolerance=10, draw_network=False)
 
     load_point = node.Node(nid=0, name="Load Point")
     load_point.x = 19.9391056
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     file_path = "data/temp_nodes.csv"
 
     get_OSMbusinesses.get_clients([N.polygon.create_osm_area()], file_path)
-    businesses = common.load_csv(file_path)
+    businesses = common.load_csv(file_path, delimiter="\t")
 
     max_index = len(N.nodes) - 1
 
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     N.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
     N.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
 
-    folder_name = f"{N.bbox.__str__().replace(',', '_').strip('()')}_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
+    folder_name = f"{N.bbox.__str__().replace(',', '_').strip('()')}_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale_no_simplify_200s"
     folder_path = 'results/CVRP/' + folder_name
     absolute_folder_path = os.getcwd() + '/' + folder_path
     Path(absolute_folder_path).mkdir(parents=True, exist_ok=True)

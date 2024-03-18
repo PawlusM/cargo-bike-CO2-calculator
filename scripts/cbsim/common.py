@@ -23,10 +23,10 @@ def save_dict_to_json(dict, filename):
         file.write(json.dumps(dict))
 
 
-def load_csv(filename: str):
+def load_csv(filename: str, delimiter) -> list:
     data = []
     with open(filename, 'r') as file:
-        reader = csv.DictReader(file, delimiter='\t')
+        reader = csv.DictReader(file, delimiter=delimiter)
         for line in reader:
             data.append(line)
 

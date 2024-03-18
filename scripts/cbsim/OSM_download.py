@@ -77,8 +77,8 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
         links_dict = dict(G.edges)
 
         # populate Net from gathered data
-        for single_node in nodes_dict.keys():
-            new_node = Node(nid=int(single_node), name=f"ITSC{single_node}")
+        for index, single_node in enumerate(nodes_dict.keys()):
+            new_node = Node(nid=single_node, name=f"ITSC{single_node}") #needed to set id to OSM ID for now, will sort it after adding links
             new_node.x = nodes_dict[single_node]['x']
             new_node.y = nodes_dict[single_node]['y']
             new_node.type = 'N'
@@ -86,8 +86,10 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
 
         for single_link in links_dict.keys():
             net.add_link(in_id=single_link[0], out_id=single_link[1],
-                         weight=float(links_dict[single_link]['length']) / 1000,  # not a fan of kilometers here
-                         directed=links_dict[single_link]['oneway'])
+                         weight=float(links_dict[single_link]['length']) / 1000)
+
+        for index, single_node in enumerate(net.nodes):
+            single_node.nid = index
 
     if draw_network:
         draw(G)

@@ -8,7 +8,7 @@ import numpy as np
 
 # TODO consider moving vehicle count calculation to net.py
 def prepare_data(n: net.Net):
-    #   Calculate how many vehicles are needed to fulfill the demands
+    #   Calculate how many routes are needed to fulfill the demand
     sum_weights = 0
     sum_volumes = 0
 
