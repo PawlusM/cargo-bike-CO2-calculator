@@ -48,7 +48,7 @@ def experiment(N, thread, q, experiment_count):
 
         N.vehicles = N.bikes
         while min_bike_distance == -1:
-            bike_routes, bike_distances, N = CVRP.solve(N, timeout=200)
+            bike_routes, bike_distances, N = CVRP.solve(N, timeout=100)
             bike_total_distances = CVRP.calculate_total_distances(bike_distances)
             try:
                 min_bike_distance = min(bike_total_distances)
@@ -80,67 +80,21 @@ def experiment(N, thread, q, experiment_count):
 
 if __name__ == "__main__":
 
-    N = net.Net()
+    n = net.Net()
 
-    N.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
-                                 latitude_north=50.06631)
+    # n.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
+    #                              latitude_north=50.06631)
 
-    N = OSM_download.generate_network(net=N, simplify=False, simplify_tolerance=10, draw_network=False)
+    boundaries_krakow = (
+        (19.9361, 50.0661), (19.9419, 50.0655), (19.9447, 50.0644), (19.9436, 50.0609), (19.9406, 50.0587),
+        (19.9389, 50.0546), (19.9375, 50.0555), (19.9352, 50.0557), (19.9334, 50.0589), (19.9319, 50.0619))
 
-    load_point = node.Node(nid=0, name="Load Point")
-    load_point.x = 19.9391056
-    load_point.y = 50.06626309999999
-    load_point.type = 'L'
+    n.polygon = net.AreaBoundingPolygon(boundaries_krakow)
 
-    N.nodes.append(load_point)
-
-    N.sdm = N.floyd_warshall(N.nodes)  # sdm with intersection only
-
-    file_path = "data/temp_nodes.csv"
-
-    get_OSMbusinesses.get_clients([N.polygon.create_osm_area()], file_path)
-    businesses = common.load_csv(file_path, delimiter="\t")
-
-    max_index = len(N.nodes) - 1
-
-    for business in businesses:
-        assert len(business) == 11
-
-        if business['NAME'] == '':  # there are some empty businesses
-            continue
-
-        max_index = max_index + 1
-        new_node = node.Node(nid=max_index, name=business['NAME'])
-
-        for type in [business['AMENITY'], business['SHOP'], business['TOURISM'], business['OFFICE']]:
-            if type == "":
-                continue
-            if type in get_OSMbusinesses.L_B:
-                new_node.type = 'L_B'
-                break
-            elif type in get_OSMbusinesses.F_D:
-                new_node.type = 'F_D'
-                break
-            elif type in get_OSMbusinesses.C_S:
-                new_node.type = 'C_S'
-                break
-            elif type in get_OSMbusinesses.O_S:
-                new_node.type = 'O_S'
-                break
-            elif type in get_OSMbusinesses.O:
-                new_node.type = 'O'
-                break
-            else:
-                new_node.type = 'V_S'
-
-        new_node.y = float(business['X'])
-        new_node.x = float(business['Y'])
-        N.nodes.append(new_node)
+    n = OSM_download.generate_network_and_businesses(n)
 
 
-    N.set_closest_itsc()
-
-    # net_draw.draw_results(N)
+    net_draw.draw_results(n)
 
     # TODO add better probs weights and dimensions, pack this into another file
     probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
@@ -158,13 +112,13 @@ if __name__ == "__main__":
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=weightScale)
     s_dimensions = stochastic.Stochastic(law=dimensionsLaw, location=dimensionsLocation, scale=dimensionsScale)
 
-    lpoints = [node for node in N.nodes if node.type == 'L']
+    lpoints = [node for node in n.nodes if node.type == 'L']
     sender = lpoints[0]
 
-    N.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
-    N.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
+    n.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
+    n.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
 
-    folder_name = f"{N.bbox.__str__().replace(',', '_').strip('()')}_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale_no_simplify_200s"
+    folder_name = f"{n.bbox.__str__().replace(',', '_').strip('()')}_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
     folder_path = 'results/CVRP/' + folder_name
     absolute_folder_path = os.getcwd() + '/' + folder_path
     Path(absolute_folder_path).mkdir(parents=True, exist_ok=True)
@@ -178,7 +132,7 @@ if __name__ == "__main__":
 
     jobs = []
     for i in range(mp.cpu_count()):
-        job = pool.apply_async(experiment, args=(N, i, q, experiment_per_thread))
+        job = pool.apply_async(experiment, args=(n, i, q, experiment_per_thread))
         jobs.append(job)
 
     for job in jobs:

@@ -15,8 +15,8 @@ def draw_results(net):
                              0.5 * (net.bbox.longitude_east + net.bbox.longitude_west)], zoom_start=15,
                    tiles="CartoDB Positron")
 
-    folium.GeoJson(data=gpd.GeoSeries(bbox_polygon).to_json(),
-                   style_function=lambda x: {'fillColor': 'red'}, name="Bounding box").add_to(m)
+    folium.GeoJson(data=gpd.GeoSeries(net.polygon.geometry).to_json(),
+                   style_function=lambda x: {'fillColor': 'red'}, name="Bounding polygon").add_to(m)
 
     nodes_group = folium.FeatureGroup("Nodes").add_to(m)
 
@@ -33,13 +33,13 @@ def draw_results(net):
                 fillColor="green"
             ).add_to(nodes_group)
         elif single_node.type == "L":
-            folium.Circle(
-                radius=10,
+            folium.Marker(
                 location=[single_node.y, single_node.x],
                 tooltip=single_node.name,
                 popup=f"{single_node.name},\nX:{single_node.x}\nY:{single_node.y}\nnid:{single_node.nid}",
                 color="red",
-                fillColor="red"
+                fillColor="red",
+                draggable = True
             ).add_to(nodes_group)
 
         else:
@@ -62,6 +62,9 @@ def draw_results(net):
             links_group)
 
     folium.LayerControl().add_to(m)
+
+
     file_name = './results/test_map.html'
     m.save(file_name)
+
     webbrowser.open(file_name)

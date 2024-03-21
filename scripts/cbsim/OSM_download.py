@@ -3,8 +3,9 @@ import networkx as nx
 import osmnx as ox
 import shapely
 
+from scripts.cbsim import get_OSMbusinesses, node, common
 from scripts.cbsim.node import Node
-from scripts.cbsim.net import AreaBoundingPolygon, AreaBoundingBox
+from scripts.cbsim.net import AreaBoundingPolygon, AreaBoundingBox, Net
 
 ox.settings.use_cache = True
 
@@ -18,8 +19,12 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
         net.polygon = AreaBoundingPolygon(points)
 
     if net.bbox is None:
-        lon_min, lon_max = net.polygon.points[0][0]
-        lat_max, lat_min = net.polygon.points[0][1]
+        lon_min = net.polygon.points[0][0]
+        lon_max = net.polygon.points[0][0]
+
+        lat_min = net.polygon.points[0][1]
+        lat_max = net.polygon.points[0][1]
+
         for point in net.polygon.points:
             if point[0] < lon_min:
                 lon_min = point[0]
@@ -78,7 +83,8 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
 
         # populate Net from gathered data
         for index, single_node in enumerate(nodes_dict.keys()):
-            new_node = Node(nid=single_node, name=f"ITSC{single_node}") #needed to set id to OSM ID for now, will sort it after adding links
+            new_node = Node(nid=single_node,
+                            name=f"ITSC{single_node}")  # needed to set id to OSM ID for now, will sort it after adding links
             new_node.x = nodes_dict[single_node]['x']
             new_node.y = nodes_dict[single_node]['y']
             new_node.type = 'N'
@@ -119,3 +125,63 @@ def draw(graph: networkx.Graph):
     # save graph as a geopackage or graphml file
     ox.io.save_graph_geopackage(G, filepath="results/graph.gpkg")
     ox.io.save_graphml(G, filepath="results/graph.graphml")
+
+
+def generate_network_and_businesses(n: Net):
+    n = generate_network(net=n, simplify=True, simplify_tolerance=10, draw_network=False)
+
+    n.sdm = n.floyd_warshall(n.nodes)  # sdm with intersections only
+
+    # TODO add loadpoint location selection
+    load_point = node.Node(nid=n.nodes[-1].nid + 1, name="Load Point")
+    load_point.x = 19.9391056
+    load_point.y = 50.06626309999999
+    load_point.type = 'L'
+    # adding 'draggable' to net_drawer enables moving the load point, but how to read back values?
+
+    n.nodes.append(load_point)
+
+    file_path = "data/temp_nodes.csv"
+
+    get_OSMbusinesses.get_clients([n.polygon.create_osm_area()], file_path)
+    businesses = common.load_csv(file_path, delimiter="\t")
+
+    max_index = len(n.nodes) - 1
+
+    for business in businesses:
+        assert len(business) == 11
+
+        if business['NAME'] == '':  # there are some empty businesses
+            continue
+
+        max_index = max_index + 1
+        new_node = node.Node(nid=max_index, name=business['NAME'])
+
+        for type in [business['AMENITY'], business['SHOP'], business['TOURISM'], business['OFFICE']]:
+            if type == "":
+                continue
+            if type in get_OSMbusinesses.L_B:
+                new_node.type = 'L_B'
+                break
+            elif type in get_OSMbusinesses.F_D:
+                new_node.type = 'F_D'
+                break
+            elif type in get_OSMbusinesses.C_S:
+                new_node.type = 'C_S'
+                break
+            elif type in get_OSMbusinesses.O_S:
+                new_node.type = 'O_S'
+                break
+            elif type in get_OSMbusinesses.O:
+                new_node.type = 'O'
+                break
+            else:
+                new_node.type = 'V_S'
+
+        new_node.y = float(business['X'])
+        new_node.x = float(business['Y'])
+        n.nodes.append(new_node)
+
+    n.set_closest_itsc()
+
+    return n

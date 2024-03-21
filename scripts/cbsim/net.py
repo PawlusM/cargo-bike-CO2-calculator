@@ -719,7 +719,6 @@ class AreaBoundingPolygon:
             string += ' '
             string += '{:.4f}'.format(round(point[0], 4))
             string += ' '
-            # string += f'{point[1]} {point[0]} '
 
         string = string[:-1]
         string += '"'
