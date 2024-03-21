@@ -38,7 +38,7 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
         net.bbox = AreaBoundingBox(longitude_west=lon_min, longitude_east=lon_max, latitude_south=lat_min,
                                    latitude_north=lat_max)
 
-    G = ox.graph_from_polygon(net.polygon.geometry, network_type=type, truncate_by_edge=False)
+    G = ox.graph_from_polygon(net.polygon.geometry, network_type=type, truncate_by_edge=True)
 
     # impute edge (driving) speeds and calculate edge travel times
     G = ox.speed.add_edge_speeds(G)
@@ -132,14 +132,7 @@ def generate_network_and_businesses(n: Net):
 
     n.sdm = n.floyd_warshall(n.nodes)  # sdm with intersections only
 
-    # TODO add loadpoint location selection
-    load_point = node.Node(nid=n.nodes[-1].nid + 1, name="Load Point")
-    load_point.x = 19.9391056
-    load_point.y = 50.06626309999999
-    load_point.type = 'L'
-    # adding 'draggable' to net_drawer enables moving the load point, but how to read back values?
 
-    n.nodes.append(load_point)
 
     file_path = "data/temp_nodes.csv"
 
