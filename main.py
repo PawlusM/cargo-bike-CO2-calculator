@@ -91,17 +91,6 @@ def experiment(N, thread, q, experiment_count, timeout):
 if __name__ == "__main__":
 
     n = net.Net()
-    #
-    # n.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
-    #                              latitude_north=50.06631)
-
-    # just for experiments, will be deleted later
-    boundaries_krakow = (
-        (19.9361, 50.0661), (19.9419, 50.0655), (19.9447, 50.0644), (19.9436, 50.0609), (19.9406, 50.0587),
-        (19.9389, 50.0546), (19.9375, 50.0555), (19.9352, 50.0557), (19.9334, 50.0589), (19.9319, 50.0619))
-    city_name = "krakow"
-
-    n.polygon = net.AreaBoundingPolygon(boundaries_krakow)
 
     if n.bbox is None and n.polygon is None:
         n = net_draw.create_bounding_polygon(n)
@@ -132,7 +121,7 @@ if __name__ == "__main__":
     dimensionsLocation = 0  # mm
     dimensionsScale = 400
 
-    experiment_per_thread = 1
+    experiment_per_thread = 10
     timeout = 10
 
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=weightScale)
@@ -144,10 +133,9 @@ if __name__ == "__main__":
     n.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
     n.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
 
-    if city_name == "":
-        folder_name = f"{n.bbox.__str__().replace(',', '_').strip('()')}"
-    else:
-        folder_name = city_name
+
+    folder_name = f"{n.bbox.__str__().replace(',', '_').strip('()')}"
+
 
     folder_name = folder_name + f"_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
     folder_path = 'results/CVRP/' + folder_name

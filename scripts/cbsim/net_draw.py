@@ -83,7 +83,7 @@ def custom_code(popup_variable_name, map_variable_name, folium_port):
                                 [${e.latlng.lat}, ${e.latlng.lng}],
                                 {}
                             ).addTo(%s);
-                        "> Store Coordinate </button>
+                        "> Save coordinates </button>
                         <button onClick="
                             fetch('http://localhost:%s', {
                                 method: 'POST',
@@ -257,7 +257,7 @@ def select_loading_point(net):
 
     folium.LatLngPopup().add_to(m)
 
-    map_title = "Select the loading point location"
+    map_title = "Select the loading point location.\n Press save to select a point and continue"
     title_html = f'<h1 style="position:absolute;z-index:100000;left:40vw" >{map_title}</h1>'
     m.get_root().html.add_child(folium.Element(title_html))
 
@@ -336,7 +336,7 @@ def create_bounding_polygon(net):
 
     folium.LatLngPopup().add_to(default_map)
 
-    map_title = "Select the bounding polygon"
+    map_title = "Select the bounding polygon.\n Press save to save one point, press quit to finish."
     title_html = f'<h1 style="position:absolute;z-index:100000;left:40vw" >{map_title}</h1>'
     default_map.get_root().html.add_child(folium.Element(title_html))
     global listen_for_multiple
