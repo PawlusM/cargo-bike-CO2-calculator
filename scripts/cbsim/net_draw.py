@@ -1,12 +1,13 @@
 import webbrowser, folium, numpy as np, geopandas as gpd
 import json, pyautogui
+from folium.plugins import Geocoder
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from scripts.cbsim.net import AreaBoundingBox, AreaBoundingPolygon
 from scripts.cbsim.node import Node
 
 from shapely.geometry.polygon import Polygon
-from time import sleep
+
 
 folium_port = 3001
 coordinates = []
@@ -335,6 +336,7 @@ def create_bounding_polygon(net):
     default_map = create_map(bbox=default_bbox)
 
     folium.LatLngPopup().add_to(default_map)
+    Geocoder().add_to(default_map)
 
     map_title = "Select the bounding polygon.\n Press save to save one point, press quit to finish."
     title_html = f'<h1 style="position:absolute;z-index:100000;left:40vw" >{map_title}</h1>'

@@ -97,14 +97,6 @@ if __name__ == "__main__":
 
     n = OSM_download.generate_network_and_businesses(n)
 
-    # just for experiments, will be deleted later
-    load_point = node.Node(nid=n.nodes[-1].nid + 1, name="Load Point")
-    load_point.x = 19.9391056
-    load_point.y = 50.06626309999999
-    load_point.type = 'L'
-    n.nodes.append(load_point)
-    n.set_closest_itsc()
-
     if len([node for node in n.nodes if node.type == 'L']) == 0:
         n = net_draw.select_loading_point(n)
 
@@ -121,7 +113,7 @@ if __name__ == "__main__":
     dimensionsLocation = 0  # mm
     dimensionsScale = 400
 
-    experiment_per_thread = 10
+    experiment_per_thread = 5
     timeout = 10
 
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=weightScale)
@@ -133,9 +125,7 @@ if __name__ == "__main__":
     n.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
     n.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
 
-
     folder_name = f"{n.bbox.__str__().replace(',', '_').strip('()')}"
-
 
     folder_name = folder_name + f"_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
     folder_path = 'results/CVRP/' + folder_name
