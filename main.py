@@ -43,6 +43,10 @@ def experiment(N, thread, q, experiment_count, timeout):
     for interator in range(experiment_count):
         N.demand = []
         N.gen_requests(sender=lpoints[0], nodes=N.nodes, probs=probs, s_weight=s_weight, s_dimensions=s_dimensions)
+
+
+
+
         print(f"T{thread}: bike:")
         min_bike_distance = -1
 
@@ -126,25 +130,25 @@ if __name__ == "__main__":
         'boundaries': boundaries_krakow,
         'loadpoint': krakow_loadpoint})
 
-    experiment_list.append({
-        'city': 'mechelen',
-        'boundaries': boundaries_mechelen,
-        'loadpoint': mecheln_loadpoint})
+    # experiment_list.append({
+    #     'city': 'mechelen',
+    #     'boundaries': boundaries_mechelen,
+    #     'loadpoint': mecheln_loadpoint})
+    #
+    # experiment_list.append({
+    #     'city': 'vitoria',
+    #     'boundaries': boundaries_vitoria,
+    #     'loadpoint': vitoria_loadpoint})
 
-    experiment_list.append({
-        'city': 'vitoria',
-        'boundaries': boundaries_vitoria,
-        'loadpoint': vitoria_loadpoint})
+    # experiment_list.append({
+    #     'city': 'san_sebastian',
+    #     'boundaries': boundaries_san_sebastian,
+    #     'loadpoint': ss_loadpoint})
 
-    experiment_list.append({
-        'city': 'san_sebastian',
-        'boundaries': boundaries_san_sebastian,
-        'loadpoint': ss_loadpoint})
-
-    experiment_list.append({
-        'city': 'rimini',
-        'boundaries': boundaries_rimini,
-        'loadpoint': rimini_loadpoint})
+    # experiment_list.append({
+    #     'city': 'rimini',
+    #     'boundaries': boundaries_rimini,
+    #     'loadpoint': rimini_loadpoint})
 
     for single_experiment in experiment_list:
 

@@ -38,7 +38,7 @@ def generate_network(net, type: str = "bike", draw_network: bool = False, simpli
         net.bbox = AreaBoundingBox(longitude_west=lon_min, longitude_east=lon_max, latitude_south=lat_min,
                                    latitude_north=lat_max)
 
-    G = ox.graph_from_polygon(net.polygon.geometry, network_type=type, truncate_by_edge=True)
+    G = ox.graph_from_polygon(net.polygon.geometry, network_type=type, truncate_by_edge=False)
 
     # impute edge (driving) speeds and calculate edge travel times
     G = ox.speed.add_edge_speeds(G)
@@ -128,7 +128,7 @@ def draw(graph: networkx.Graph):
 
 
 def generate_network_and_businesses(n: Net):
-    n = generate_network(net=n, simplify=True, simplify_tolerance=10, draw_network=False)
+    n = generate_network(net=n, simplify=False, simplify_tolerance=10, draw_network=False)
 
     n.sdm = n.floyd_warshall(n.nodes)  # sdm with intersections only
 

@@ -73,7 +73,8 @@ def prepare_data(n: net.Net):
         "width": [0],
         "length": [0],  # mm
         "height": [0],
-        "volume": [0]
+        "volume": [0],
+        "itsc_distance": [0]
     }
 
     for ID, singleOrder in enumerate(n.demand):
@@ -83,6 +84,8 @@ def prepare_data(n: net.Net):
         orders['length'].append(singleOrder.length)
         orders['height'].append(singleOrder.height)
         orders['volume'].append(singleOrder.volume)
+        orders['itsc_distance'].append(
+            int(n.gps_distance(singleOrder.destination, singleOrder.destination.closest_itsc) * 1000))
 
     return data, orders, requests_sdm, n
 
@@ -99,7 +102,9 @@ def solve(n: net.Net, timeout):
         # Convert from routing variable Index to distance matrix NodeIndex.
         from_node = manager.IndexToNode(from_index)
         to_node = manager.IndexToNode(to_index)
+        # distance = distance_matrix[from_node][to_node] + orders['itsc_distance'][to_node]
         return distance_matrix[from_node][to_node]
+
 
     transit_callback_index = routing.RegisterTransitCallback(distance_callback)
 
@@ -149,7 +154,7 @@ def solve(n: net.Net, timeout):
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     search_parameters.first_solution_strategy = (routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
     search_parameters.local_search_metaheuristic = (routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
-    search_parameters.solution_limit = 1
+    search_parameters.solution_limit = 100
     search_parameters.time_limit.FromSeconds(timeout)
     search_parameters.use_full_propagation = 1
 
@@ -232,6 +237,7 @@ def list_solution(data, manager, routing, solution, i, distance_matrix):
         distances.append(distance)
 
     return routes, distances
+
 
 def calculate_total_distances(routes):
     total_distances = []
