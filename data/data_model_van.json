@@ -1,1 +1,1 @@
-{"vehicle_capacity": 1415000, "cargo_length": 2415, "cargo_width": 2415, "cargo_height": 2415}
+{"vehicle_capacity": 1415000, "cargo_length": 2415, "cargo_width": 2415, "cargo_height": 2415, "average_speed":  10, "distance": 500000, "time" : 480, "service_time": 5}

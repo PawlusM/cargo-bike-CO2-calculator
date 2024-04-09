@@ -1,6 +1,6 @@
 import time
 
-from scripts.cbsim import OSM_download, net, net_draw, node, stochastic, common, vehicles, CVRP, co2
+from scripts.cbsim import OSM_download, net, net_draw, node, stochastic, common, vehicles, CVRP, co2, experiment_runner
 from datetime import datetime
 from pathlib import Path
 import multiprocessing as mp
@@ -44,52 +44,53 @@ def experiment(N, thread, q, experiment_count, timeout):
         N.demand = []
         N.gen_requests(sender=lpoints[0], nodes=N.nodes, probs=probs, s_weight=s_weight, s_dimensions=s_dimensions)
 
+        experiment_runner.main(N)
 
 
 
-        print(f"T{thread}: bike:")
-        min_bike_distance = -1
-
-        N.vehicles = N.bikes
-        while min_bike_distance == -1:
-            bike_routes, bike_distances, N = CVRP.solve(N, timeout=timeout)
-            bike_total_distances = CVRP.calculate_total_distances(bike_distances)
-            try:
-                min_bike_distance = min(bike_total_distances)
-            except ValueError:
-                min_bike_distance = -1
-                N.vehicles.count = N.vehicles.count + 1
-                print(f"T{thread}: adding bike {N.vehicles.count}")
-
-        index = bike_total_distances.index(min_bike_distance)
-
-        bike_count = len(bike_routes[index])
-        print(f"T{thread}: best total bike distance: {min_bike_distance}\n")
-
-        print(f"T{thread}: van:")
-        min_van_distance = -1
-        N.vehicles = N.vans
-        while min_van_distance == -1:
-            van_routes, van_distances, N = CVRP.solve(N, timeout=timeout)
-            van_total_distances = CVRP.calculate_total_distances(van_distances)
-
-            try:
-                min_van_distance = min(van_total_distances)
-            except ValueError:
-                min_van_distance = -1
-                N.vehicles.count = N.vehicles.count + 1
-                print(f"T{thread}: adding van {N.vehicles.count}")
-
-        index = van_total_distances.index(min_van_distance)
-
-        van_count = len(van_routes[index])
-
-        print(f"T{thread}: best total van distance: {min_van_distance}\n")
-
-        van_emissions = co2.calc_co2(van_count, min_van_distance / 1000, co2.cons, co2.em_fs, params=[0, 100])
-
-        result = N, bike_routes, bike_distances, min_bike_distance, bike_count, van_routes, van_distances, min_van_distance, van_count, van_emissions
-        q.put(result)
+        # print(f"T{thread}: bike:")
+        # min_bike_distance = -1
+        #
+        # N.vehicles = N.bikes
+        # while min_bike_distance == -1:
+        #     bike_routes, bike_distances, N = cvrp_multi_route.solve(N, timeout=timeout, solution_limit = 100)
+        #     bike_total_distances = CVRP.calculate_total_distances(bike_distances)
+        #     try:
+        #         min_bike_distance = min(bike_total_distances)
+        #     except ValueError:
+        #         min_bike_distance = -1
+        #         N.vehicles.count = N.vehicles.count + 1
+        #         print(f"T{thread}: adding bike {N.vehicles.count}")
+        #
+        # index = bike_total_distances.index(min_bike_distance)
+        #
+        # bike_count = len(bike_routes[index])
+        # print(f"T{thread}: best total bike distance: {min_bike_distance}\n")
+        #
+        # print(f"T{thread}: van:")
+        # min_van_distance = -1
+        # N.vehicles = N.vans
+        # while min_van_distance == -1:
+        #     van_routes, van_distances, N = CVRP.solve(N, timeout=timeout)
+        #     van_total_distances = CVRP.calculate_total_distances(van_distances)
+        #
+        #     try:
+        #         min_van_distance = min(van_total_distances)
+        #     except ValueError:
+        #         min_van_distance = -1
+        #         N.vehicles.count = N.vehicles.count + 1
+        #         print(f"T{thread}: adding van {N.vehicles.count}")
+        #
+        # index = van_total_distances.index(min_van_distance)
+        #
+        # van_count = len(van_routes[index])
+        #
+        # print(f"T{thread}: best total van distance: {min_van_distance}\n")
+        #
+        # van_emissions = co2.calc_co2(van_count, min_van_distance / 1000, co2.cons, co2.em_fs, params=[0, 100])
+        #
+        # result = N, bike_routes, bike_distances, min_bike_distance, bike_count, van_routes, van_distances, min_van_distance, van_count, van_emissions
+        # q.put(result)
 
 
 if __name__ == "__main__":
@@ -153,11 +154,8 @@ if __name__ == "__main__":
     for single_experiment in experiment_list:
 
         n = net.Net()
-        #
-        # n.bbox = net.AreaBoundingBox(longitude_west=19.93000, longitude_east=19.94537, latitude_south=50.05395,
-        #                              latitude_north=50.06631)
 
-        city_name = single_experiment['city']
+        n.city_name = single_experiment['city']
 
         n.polygon = net.AreaBoundingPolygon(single_experiment['boundaries'])
 
@@ -177,7 +175,7 @@ if __name__ == "__main__":
         if len([node for node in n.nodes if node.type == 'L']) == 0:
             n = net_draw.select_loading_point(n)
 
-        net_draw.draw_results(n)
+        # net_draw.draw_results(n)
 
         # TODO add better probs weights and dimensions, pack this into another file
         probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
@@ -190,8 +188,9 @@ if __name__ == "__main__":
         dimensionsLocation = 0  # mm
         dimensionsScale = 400
 
-        experiment_per_thread = 15
-        timeout = 100
+        multithreading = False
+        experiment_per_thread = 1
+        timeout = 30
 
         s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=weightScale)
         s_dimensions = stochastic.Stochastic(law=dimensionsLaw, location=dimensionsLocation, scale=dimensionsScale)
@@ -201,6 +200,8 @@ if __name__ == "__main__":
 
         n.vans = vehicles.Vehicles(common.load_dict_from_json("data/data_model_van.json"))
         n.bikes = vehicles.Vehicles(common.load_dict_from_json("data/data_model_bike.json"))
+
+        city_name = n.city_name
 
         if city_name == "":
             folder_name = f"{n.bbox.__str__().replace(',', '_').strip('()')}"
@@ -215,18 +216,22 @@ if __name__ == "__main__":
         manager = mp.Manager()
         q = manager.Queue()
 
-        pool = mp.Pool(mp.cpu_count() + 2)
+        if multithreading:
 
-        watcher = pool.apply_async(listener, (q,))
+            pool = mp.Pool(mp.cpu_count() + 2)
 
-        jobs = []
-        for i in range(mp.cpu_count()):
-            job = pool.apply_async(experiment, args=(n, i, q, experiment_per_thread, timeout))
-            jobs.append(job)
+            watcher = pool.apply_async(listener, (q,))
 
-        for job in jobs:
-            job.get()
+            jobs = []
+            for i in range(mp.cpu_count()):
+                job = pool.apply_async(experiment, args=(n, i, q, experiment_per_thread, timeout))
+                jobs.append(job)
 
-        q.put("kill")
-        pool.close()
-        pool.join()
+            for job in jobs:
+                job.get()
+
+            q.put("kill")
+            pool.close()
+            pool.join()
+        else:
+            experiment(n,0,q, experiment_per_thread, timeout)
