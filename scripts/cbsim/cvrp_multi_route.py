@@ -71,7 +71,7 @@ def create_data_model(n: net.Net):
     reload_count_volume = sum_volumes / n.vehicles.cargo_volume
 
     data['reloads'] = int(max(reload_count_weight, reload_count_volume) + 1)  # give one more reload just in case
-    print(f'Reload count: {data["reloads"]}')
+    # print(f'Reload count: {data["reloads"]}')
 
     # create data matrix
 
@@ -103,7 +103,6 @@ def create_data_model(n: net.Net):
     # Prepare vehicle data
 
     _capacity = n.vehicles.capacity
-
 
     _cargo_volume = n.vehicles.cargo_volume
 
@@ -388,19 +387,18 @@ def print_solution(data, manager, routing, assignment):  # pylint:disable=too-ma
 
 
 def solution_info(data, manager, routing, assignment, info):
-    print('halo')
-    dropped_orders = []
-    for order in range(data['reloads'], routing.nodes()):
-        index = manager.NodeToIndex(order)
-        if assignment.Value(routing.NextVar(index)) == index:
-            dropped_orders.append(order)
-
-    dropped_without_depots = []
-    for order in dropped_orders:
-        dropped_order = order - data['reloads']
-        dropped_without_depots.append(dropped_order)
-
-    info['dropped_orders'] = dropped_without_depots
+    # dropped_orders = []
+    # for order in range(data['reloads'], routing.nodes()):
+    #     index = manager.NodeToIndex(order)
+    #     if assignment.Value(routing.NextVar(index)) == index:
+    #         dropped_orders.append(order)
+    #
+    # dropped_without_depots = []
+    # for order in dropped_orders:
+    #     dropped_order = order - data['reloads']
+    #     dropped_without_depots.append(dropped_order)
+    #
+    # info['dropped_orders'] = dropped_without_depots
 
     total_distance = 0
     total_load = 0
@@ -408,7 +406,7 @@ def solution_info(data, manager, routing, assignment, info):
     capacity_dimension = routing.GetDimensionOrDie('Capacity')
     volume_dimension = routing.GetDimensionOrDie('Volume')
     time_dimension = routing.GetDimensionOrDie('Time')
-    info['route']= []
+    info['route'] = []
     for vehicle_id in range(data['num_vehicles']):
         index = routing.Start(vehicle_id)
         distance = 0
@@ -417,7 +415,7 @@ def solution_info(data, manager, routing, assignment, info):
             index = assignment.Value(routing.NextVar(index))
             distance += routing.GetArcCostForVehicle(previous_index, index,
                                                      vehicle_id)
-            info['route'].append(manager.IndexToNode(index))
+            info['route'].append(manager.IndexToNode(index) - (data['reloads']))  #all depots have negative numbers
         load_var = capacity_dimension.CumulVar(index)
         time_var = time_dimension.CumulVar(index)
         total_distance += distance
@@ -434,9 +432,6 @@ def solution_info(data, manager, routing, assignment, info):
 def solve(n: net.Net, timeout, solution_limit):
     """Entry point of the program"""
     # Instantiate the data problem.
-
-
-
 
     data = create_data_model(n)
 
@@ -478,8 +473,8 @@ def solve(n: net.Net, timeout, solution_limit):
     search_parameters.local_search_metaheuristic = (
         routing_enums_pb2.LocalSearchMetaheuristic.TABU_SEARCH)
     search_parameters.solution_limit = solution_limit
-    # search_parameters.time_limit.FromSeconds(
-    #     timeout)  # high time limit in order to accommodate for slow cpus or not having
+    search_parameters.time_limit.FromSeconds(
+        timeout)  # high time limit in order to accommodate for slow cpus or not having
     # enough solution to trigger solution_limit
 
     search_parameters.use_full_propagation = 1
@@ -488,14 +483,16 @@ def solve(n: net.Net, timeout, solution_limit):
     # Solve the problem.
     solution = routing.SolveWithParameters(search_parameters)
     runtime = time.time() - start_time
-    print(f'Solution time: {runtime}')
+    # print(f'Solution time: {runtime}')
+    # if runtime > timeout:
+    #     print('\n\nTIME LIMIT EXCEEDED\n\n')
 
     info = {'solver_status': routing.status()}
 
     if solution:
-        print_solution(data, manager, routing, solution)
+        # print_solution(data, manager, routing, solution)
         info = solution_info(data, manager, routing, solution, info)
-        print(info)
+        # print(info)
 
     else:
         print("No solution found !")
