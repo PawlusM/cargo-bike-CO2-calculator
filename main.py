@@ -61,7 +61,7 @@ def listener(q):
 
 
 def experiment(N, q, thread):
-    experiment_per_thread = 1
+    experiment_per_thread = 15
 
     for i in range(experiment_per_thread):
         results, demands, total_data = experiment_runner.main(N, thread)

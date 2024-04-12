@@ -28,7 +28,7 @@ def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
     max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 1
+    timeout = 1200
     solution_limit = 2000
 
     results = {}
