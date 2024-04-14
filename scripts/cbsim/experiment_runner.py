@@ -95,6 +95,8 @@ def main(n: Net, thread: int):
 
                     for point in info['route']:
                         total_vehicle_info['vehicle_route'].append(point)
+                    if info['route'] == [-1]:
+                        break
 
                 results[bike_count].append(total_vehicle_info)
 
