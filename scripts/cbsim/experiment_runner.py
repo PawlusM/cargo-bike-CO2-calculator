@@ -29,8 +29,8 @@ def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
     max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 120
-    solution_limit = 4000
+    timeout = 200
+    solution_limit = 3000
 
     results = {}
     probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
