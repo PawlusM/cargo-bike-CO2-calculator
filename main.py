@@ -53,10 +53,11 @@ def listener(q):
 
             with open(results_path, 'a') as f:
                 f.write(
-                    f"{dtString};{i};{bike_count};{bike_total_distance};{bike_total_time};{van_count};{van_total_distance};{van_total_time};{van_emissions}\n")
+                    f"{dtString};{bike_count};{bike_total_distance};{bike_total_time};{van_count};{van_total_distance};{van_total_time};{van_emissions}\n")
         # if counter >= experiment_count:
         #     kill = True
         #     print("Waiting for threads to finish")
+
 
 
 
@@ -69,7 +70,7 @@ def experiment(N, q, thread):
         # demands = [2]
         # total_data = [3]
         q.put((results, demands, total_data))
-
+        return((results, demands, total_data))
         # print(f"T{thread}: bike:")
         # min_bike_distance = -1
         #
@@ -197,18 +198,8 @@ for single_experiment in experiment_list:
 
     # net_draw.draw_results(n)
 
-    # TODO add better probs weights and dimensions, pack this into another file
-    probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
 
-    weightLaw = 0  # 0 - rectangular, 1 - normal, 2 - exponential
-    weightLocation = 0  # grams
-    weightScale = 25000  # 25kg for UPS, InPost, 31,5 kg for for DPD, DHL
-
-    dimensionsLaw = 0
-    dimensionsLocation = 0  # mm
-    dimensionsScale = 400
-
-    multithreading = True
+    multithreading = False
     global experiment_count
     experiment_count = 1
 
@@ -234,11 +225,12 @@ for single_experiment in experiment_list:
     manager = mp.Manager()
     q = manager.Queue()
 
-    pool = mp.Pool(mp.cpu_count() + 2)
-
-    watcher = pool.apply_async(listener, (q,))
 
     if multithreading:
+        pool = mp.Pool(mp.cpu_count() + 2)
+
+        watcher = pool.apply_async(listener, (q,))
+
         jobs = []
         for i in range(mp.cpu_count()):
             job = pool.apply_async(experiment, args=(n, q, i))

@@ -116,21 +116,6 @@ def create_data_model(n: net.Net):
         data['demands'].append(singleOrder.weight)
         data['volumes'].append(singleOrder.volume)
 
-    # data['demands'] = \
-    #     [0,  # depot
-    #      -_capacity,  # unload depot_first
-    #      -_capacity,  # unload depot_second
-    #      -_capacity,  # unload depot_third
-    #      -_capacity,  # unload depot_fourth
-    #      -_capacity,  # unload depot_fifth
-    #      3, 3,  # 1, 2
-    #      3, 4,  # 3, 4
-    #      3, 4,  # 5, 6
-    #      3, 8,  # 7, 8
-    #      3, 3,  # 9,10
-    #      3, 3,  # 11,12
-    #      4, 4,  # 13, 14
-    #      8, 8]  # 15, 16
     data['num_locations'] = len(data['demands'])
 
     data['service_time'] = n.vehicles.service_time

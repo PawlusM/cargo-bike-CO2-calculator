@@ -1,6 +1,6 @@
 from scripts.cbsim.net import Net
 from scripts.cbsim import stochastic, common, co2
-import scripts.cbsim.cvrp_multi_route as cvrp
+import scripts.cbsim.CVRP as cvrp
 import os
 
 
@@ -26,9 +26,9 @@ def results_handler(info, n):
 
 def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
-    max_bikes = 5
+    max_bikes = 1
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 1200
+    timeout = 30
     solution_limit = 2000
 
     results = {}
@@ -60,36 +60,79 @@ def main(n: Net, thread: int):
         demand['destination'] = single_demand.destination.name
         demand['weight'] = single_demand.weight
         demand['volume'] = single_demand.volume
+        demand['x'] = single_demand.destination.x
+        demand['y'] = single_demand.destination.y
         demands.append(demand)
 
     for bike_count in range(max_bikes):
         results[bike_count] = []
-        # print(f'bike count: {bike_count}')
+
         n = common.load_results(filename)
-        # common.save_results()
-        # iterate over bicycles, if none dont't
+
         if bike_count != 0:
             for bike in range(bike_count):
+
                 n.vehicles = n.bikes
-                # print(f"bike: {bike}, total orders = {len(n.demand)}")
-                info = cvrp.solve(n, timeout, solution_limit)
+                n.vehicles.time_left = n.vehicles.time
+                n.vehicles.distance_left = n.vehicles.distance
 
-                results_handler(info, n)
-                info['type'] = "bike"
+                total_vehicle_info = dict(vehicle_type='bike', vehicle_distance=0, vehicle_load=0, vehicle_time=0,
+                                          vehicle_route=[])
 
-                results[bike_count].append(info)
+                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info['vehicle_distance'] < 0.95 * n.vehicles.distance:
+                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                      solution_limit=solution_limit, timeout=timeout)
+                    results_handler(info, n)
+                    total_vehicle_info['vehicle_distance'] += info['distance']
+                    n.vehicles.distance_left -= info['distance']
+
+                    total_vehicle_info['vehicle_time'] += info['time']
+                    n.vehicles.time_left -= info['time']
+
+                    total_vehicle_info['vehicle_load'] += info['load']
+
+                    for point in info['route']:
+                        total_vehicle_info['vehicle_route'].append(point)
+
+
+                results[bike_count].append(total_vehicle_info)
+
+
+
+
                 if not n.demand:
                     break
         # print('van')
         for i in range(5):
-            if n.demand is not []:
-                n.vehicles = n.vans
-                # print(f"van: {i}, total orders = {len(n.demand)}")
-                info = cvrp.solve(n, timeout, solution_limit)
-                results_handler(info, n)
 
-                info['type'] = "van"
-                results[bike_count].append(info)
+            n.vehicles = n.vans
+            n.vehicles.time_left = n.vehicles.time
+            n.vehicles.distance_left = n.vehicles.distance
+
+            total_vehicle_info = dict(vehicle_type='van', vehicle_distance=0, vehicle_load=0, vehicle_time=0,
+                                      vehicle_route=[])
+            if n.demand is not []:
+
+
+                # print(f"van: {i}, total orders = {len(n.demand)}")
+                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info['vehicle_distance'] < 0.95 * n.vehicles.distance:
+                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                      solution_limit=solution_limit, timeout=timeout)
+                    results_handler(info, n)
+                    total_vehicle_info['vehicle_distance'] += info['distance']
+                    n.vehicles.distance_left -= info['distance']
+
+                    total_vehicle_info['vehicle_time'] += info['time']
+                    n.vehicles.time_left -= info['time']
+
+                    total_vehicle_info['vehicle_load'] += info['load']
+
+                    for point in info['route']:
+                        total_vehicle_info['vehicle_route'].append(point)
+
+                total_vehicle_info['vehicle_type'] = 'van'
+
+                results[bike_count].append(total_vehicle_info)
                 if not n.demand:
                     break
     os.remove(filename)
@@ -108,13 +151,13 @@ def main(n: Net, thread: int):
         van_total_time = 0
         van_count = 0
         for single_vehicle in results[single_result]:
-            if single_vehicle['type'] == "van":
-                van_total_distance += single_vehicle['distance']
-                van_total_time += single_vehicle['time']
+            if single_vehicle['vehicle_type'] == "van":
+                van_total_distance += single_vehicle['vehicle_distance']
+                van_total_time += single_vehicle['vehicle_time']
                 van_count += 1
             elif single_vehicle['type'] == "bike":
-                bike_total_distance += single_vehicle['distance']
-                bike_total_time += single_vehicle['time']
+                bike_total_distance += single_vehicle['vehicle_distance']
+                bike_total_time += single_vehicle['vehicle_time']
         bike_distances.append(bike_total_distance)
         bike_times.append(bike_total_time)
         van_distances.append(van_total_distance)
@@ -123,7 +166,7 @@ def main(n: Net, thread: int):
         van_emissions.append(co2.calc_co2(van_count, van_total_distance / 1000, co2.cons, co2.em_fs, params=[0, 100]))
     total_data = {'bike_distances': bike_distances,
                   'bike_times': bike_times,
-                  'van_count' : van_counts,
+                  'van_count': van_counts,
                   'van_distances': van_distances,
                   'van_times': van_times,
                   'van_emissions': van_emissions}
