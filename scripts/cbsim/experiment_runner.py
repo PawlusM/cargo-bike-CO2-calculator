@@ -6,7 +6,8 @@ import os
 
 def results_handler(info, n):
     # print(f"solver status: {info['solver_status']}")
-
+    if info['route'] == [-1]:
+        print('got empty solution')
     time_usage = info['time'] / n.vehicles.time
     distance_usage = info['distance'] / n.vehicles.distance
 
@@ -26,10 +27,10 @@ def results_handler(info, n):
 
 def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
-    max_bikes = 1
+    max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 30
-    solution_limit = 2000
+    timeout = 120
+    solution_limit = 4000
 
     results = {}
     probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
@@ -64,14 +65,14 @@ def main(n: Net, thread: int):
         demand['y'] = single_demand.destination.y
         demands.append(demand)
 
-    for bike_count in range(max_bikes):
+    for bike_count in range(max_bikes + 1):
         results[bike_count] = []
 
         n = common.load_results(filename)
 
         if bike_count != 0:
             for bike in range(bike_count):
-
+                print(f'Processing bike {bike}')
                 n.vehicles = n.bikes
                 n.vehicles.time_left = n.vehicles.time
                 n.vehicles.distance_left = n.vehicles.distance
@@ -79,7 +80,8 @@ def main(n: Net, thread: int):
                 total_vehicle_info = dict(vehicle_type='bike', vehicle_distance=0, vehicle_load=0, vehicle_time=0,
                                           vehicle_route=[])
 
-                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info['vehicle_distance'] < 0.95 * n.vehicles.distance:
+                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
+                    'vehicle_distance'] < 0.95 * n.vehicles.distance:
                     info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
                                       solution_limit=solution_limit, timeout=timeout)
                     results_handler(info, n)
@@ -94,17 +96,13 @@ def main(n: Net, thread: int):
                     for point in info['route']:
                         total_vehicle_info['vehicle_route'].append(point)
 
-
                 results[bike_count].append(total_vehicle_info)
-
-
-
 
                 if not n.demand:
                     break
         # print('van')
         for i in range(5):
-
+            print(f'Processing van {i}')
             n.vehicles = n.vans
             n.vehicles.time_left = n.vehicles.time
             n.vehicles.distance_left = n.vehicles.distance
@@ -113,9 +111,9 @@ def main(n: Net, thread: int):
                                       vehicle_route=[])
             if n.demand is not []:
 
-
                 # print(f"van: {i}, total orders = {len(n.demand)}")
-                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info['vehicle_distance'] < 0.95 * n.vehicles.distance:
+                while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
+                    'vehicle_distance'] < 0.95 * n.vehicles.distance:
                     info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
                                       solution_limit=solution_limit, timeout=timeout)
                     results_handler(info, n)
@@ -129,8 +127,6 @@ def main(n: Net, thread: int):
 
                     for point in info['route']:
                         total_vehicle_info['vehicle_route'].append(point)
-
-                total_vehicle_info['vehicle_type'] = 'van'
 
                 results[bike_count].append(total_vehicle_info)
                 if not n.demand:

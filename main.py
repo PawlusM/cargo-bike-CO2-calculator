@@ -10,9 +10,7 @@ kill = False
 
 
 def listener(q):
-    global experiment_count
-    excount = experiment_count
-    global kill
+
     counter = 0
     while True:
         message = q.get()
@@ -26,40 +24,38 @@ def listener(q):
         else:
             counter += 1
             (results, demands, total_info) = message
-
-        now = datetime.now()
-        dtString = now.strftime("%Y_%m_%d_%H_%M_%S_%s")
-
-        Path(absolute_folder_path + '/demands').mkdir(parents=True, exist_ok=True)
-        Path(absolute_folder_path + '/results').mkdir(parents=True, exist_ok=True)
-
-        common.save_dict_to_json(demands, absolute_folder_path + f'/demands/{dtString}.json')
-        common.save_dict_to_json(results, absolute_folder_path + f'/results/{dtString}.json')
-
-        results_path = absolute_folder_path + '/' + "results.csv"
-        if not (os.path.isfile(results_path)):
-            with open(results_path, 'w') as f:
-                f.write(
-                    "datetime;bike_count;bike_total_distance;bike_total_time;van_count;van_total_distance;van_total_time;van_emissions\n")
-
-        for i in range(len(total_info['bike_distances'])):
-            bike_count = i
-            bike_total_distance = total_info['bike_distances'][i]
-            bike_total_time = total_info['bike_times'][i]
-            van_count = total_info['van_count'][i]
-            van_total_distance = total_info['van_distances'][i]
-            van_total_time = total_info['van_times'][i]
-            van_emissions = total_info['van_emissions'][i]
-
-            with open(results_path, 'a') as f:
-                f.write(
-                    f"{dtString};{bike_count};{bike_total_distance};{bike_total_time};{van_count};{van_total_distance};{van_total_time};{van_emissions}\n")
-        # if counter >= experiment_count:
-        #     kill = True
-        #     print("Waiting for threads to finish")
+        results_saver(results, demands, total_info)
 
 
 
+def results_saver(results, demands, total_info):
+    now = datetime.now()
+    dtString = now.strftime("%Y_%m_%d_%H_%M_%S_%s")
+
+    Path(absolute_folder_path + '/demands').mkdir(parents=True, exist_ok=True)
+    Path(absolute_folder_path + '/results').mkdir(parents=True, exist_ok=True)
+
+    common.save_dict_to_json(demands, absolute_folder_path + f'/demands/{dtString}.json')
+    common.save_dict_to_json(results, absolute_folder_path + f'/results/{dtString}.json')
+
+    results_path = absolute_folder_path + '/' + "results.csv"
+    if not (os.path.isfile(results_path)):
+        with open(results_path, 'w') as f:
+            f.write(
+                "datetime;bike_count;bike_total_distance;bike_total_time;van_count;van_total_distance;van_total_time;van_emissions\n")
+
+    for i in range(len(total_info['bike_distances'])):
+        bike_count = i
+        bike_total_distance = total_info['bike_distances'][i]
+        bike_total_time = total_info['bike_times'][i]
+        van_count = total_info['van_count'][i]
+        van_total_distance = total_info['van_distances'][i]
+        van_total_time = total_info['van_times'][i]
+        van_emissions = total_info['van_emissions'][i]
+
+        with open(results_path, 'a') as f:
+            f.write(
+                f"{dtString};{bike_count};{bike_total_distance};{bike_total_time};{van_count};{van_total_distance};{van_total_time};{van_emissions}\n")
 
 def experiment(N, q, thread):
     experiment_per_thread = 15
@@ -70,7 +66,7 @@ def experiment(N, q, thread):
         # demands = [2]
         # total_data = [3]
         q.put((results, demands, total_data))
-        return((results, demands, total_data))
+        return results, demands, total_data
         # print(f"T{thread}: bike:")
         # min_bike_distance = -1
         #
@@ -200,8 +196,7 @@ for single_experiment in experiment_list:
 
 
     multithreading = False
-    global experiment_count
-    experiment_count = 1
+
 
     lpoints = [node for node in n.nodes if node.type == 'L']
     sender = lpoints[0]
@@ -245,4 +240,5 @@ for single_experiment in experiment_list:
         pool.join()
     else:
 
-        experiment(n, q, 0)
+        results, demands, total_data = experiment(n, q, 0)
+        results_saver(results, demands, total_data)

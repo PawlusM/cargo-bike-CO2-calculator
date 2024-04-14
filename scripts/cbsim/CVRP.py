@@ -345,7 +345,7 @@ def solve(demands, load_point, sdm, vehicle, solution_limit, timeout):
     search_parameters.first_solution_strategy = (
         routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)  # pylint: disable=no-member
     search_parameters.local_search_metaheuristic = (
-        routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
+        routing_enums_pb2.LocalSearchMetaheuristic.TABU_SEARCH)
     search_parameters.solution_limit = solution_limit
     search_parameters.time_limit.FromSeconds(
         timeout)  # high time limit in order to accommodate for slow cpus or not having
@@ -357,6 +357,7 @@ def solve(demands, load_point, sdm, vehicle, solution_limit, timeout):
     # Solve the problem.
     solution = routing.SolveWithParameters(search_parameters)
     runtime = time.time() - start_time
+    print(runtime)
 
     info = {'solver_status': routing.status()}
 
