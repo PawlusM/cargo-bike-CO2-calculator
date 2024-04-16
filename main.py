@@ -10,7 +10,6 @@ kill = False
 
 
 def listener(q):
-
     counter = 0
     while True:
         message = q.get()
@@ -25,7 +24,6 @@ def listener(q):
             counter += 1
             (results, demands, total_info) = message
         results_saver(results, demands, total_info)
-
 
 
 def results_saver(results, demands, total_info):
@@ -56,6 +54,7 @@ def results_saver(results, demands, total_info):
         with open(results_path, 'a') as f:
             f.write(
                 f"{dtString};{bike_count};{bike_total_distance};{bike_total_time};{van_count};{van_total_distance};{van_total_time};{van_emissions}\n")
+
 
 def experiment(N, q, thread):
     experiment_per_thread = 15
@@ -194,8 +193,9 @@ for single_experiment in experiment_list:
 
     # net_draw.draw_results(n)
 
+    multithreading = True
 
-    multithreading = False
+
 
 
     lpoints = [node for node in n.nodes if node.type == 'L']
@@ -219,7 +219,6 @@ for single_experiment in experiment_list:
 
     manager = mp.Manager()
     q = manager.Queue()
-
 
     if multithreading:
         pool = mp.Pool(mp.cpu_count() + 2)

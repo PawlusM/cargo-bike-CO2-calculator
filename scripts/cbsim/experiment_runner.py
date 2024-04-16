@@ -29,18 +29,18 @@ def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
     max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 200
-    solution_limit = 3000
+    timeout = 60
+    solution_limit = 5000
 
     results = {}
     probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
 
     weightLaw = 1  # 0 - rectangular, 1 - normal, 2 - exponential
-    weightLocation = 75000  # grams
+    weightLocation = 25000  # grams
     # weightScale = 150000  # 25kg for UPS, InPost, 31,5 kg for for DPD, DHL
 
     dimensionsLaw = 1
-    dimensionsLocation = 500  # mm
+    dimensionsLocation = 300  # mm
     # dimensionsScale = 1000
 
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=0.3 * weightLocation)
@@ -49,6 +49,16 @@ def main(n: Net, thread: int):
     lpoints = [node for node in n.nodes if node.type == 'L']
 
     n.gen_requests(sender=lpoints[0], nodes=n.nodes, probs=probs, s_weight=s_weight, s_dimensions=s_dimensions)
+
+    for request in n.demand:
+        while request.weight < 0:
+            request.weight = s_weight.value()
+        while request.width < 0:
+            request.width = s_dimensions.value()
+        while request.height < 0:
+            request.height = s_dimensions.value()
+        while request.length < 0:
+            request.length = s_dimensions.value()
 
     filename = f'data/net_copy_{thread}.pkl'
 
@@ -82,9 +92,21 @@ def main(n: Net, thread: int):
 
                 while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
                     'vehicle_distance'] < 0.95 * n.vehicles.distance:
-                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
-                                      solution_limit=solution_limit, timeout=timeout)
+                    result = [-1]
+                    retry_count = 0
+                    while result == [-1] and retry_count < 3:
+
+                        info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                          solution_limit=solution_limit, timeout=timeout)
+                        result = info['route']
+                        if result != [-1]:
+                            break
+                        else:
+                            retry_count += 1
+                            print("retry")
+
                     results_handler(info, n)
+
                     total_vehicle_info['vehicle_distance'] += info['distance']
                     n.vehicles.distance_left -= info['distance']
 
@@ -116,8 +138,19 @@ def main(n: Net, thread: int):
                 # print(f"van: {i}, total orders = {len(n.demand)}")
                 while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
                     'vehicle_distance'] < 0.95 * n.vehicles.distance:
-                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
-                                      solution_limit=solution_limit, timeout=timeout)
+                    result = [-1]
+                    retry_count = 0
+                    while result == [-1] and retry_count < 3:
+
+                        info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                          solution_limit=solution_limit, timeout=timeout)
+                        result = info['route']
+                        if result != [-1]:
+                            break
+                        else:
+                            retry_count += 1
+                            print("retry")
+
                     results_handler(info, n)
                     total_vehicle_info['vehicle_distance'] += info['distance']
                     n.vehicles.distance_left -= info['distance']
@@ -129,6 +162,9 @@ def main(n: Net, thread: int):
 
                     for point in info['route']:
                         total_vehicle_info['vehicle_route'].append(point)
+
+                    if info['route'] == [-1]:
+                        break
 
                 results[bike_count].append(total_vehicle_info)
                 if not n.demand:
@@ -153,7 +189,7 @@ def main(n: Net, thread: int):
                 van_total_distance += single_vehicle['vehicle_distance']
                 van_total_time += single_vehicle['vehicle_time']
                 van_count += 1
-            elif single_vehicle['type'] == "bike":
+            elif single_vehicle['vehicle_type'] == "bike":
                 bike_total_distance += single_vehicle['vehicle_distance']
                 bike_total_time += single_vehicle['vehicle_time']
         bike_distances.append(bike_total_distance)
