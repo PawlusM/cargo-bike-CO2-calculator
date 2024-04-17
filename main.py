@@ -15,7 +15,7 @@ def listener(q):
         message = q.get()
 
         # print(f"got: {message}")
-        if message == "kill" or kill == True:
+        if message == "kill":
 
             kill = True
             print("kill")

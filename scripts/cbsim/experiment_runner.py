@@ -29,7 +29,8 @@ def main(n: Net, thread: int):
     # run at first with 0 bicycles, then add one
     max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
-    timeout = 60
+
+    timeout = 120
     solution_limit = 5000
 
     results = {}
@@ -82,7 +83,7 @@ def main(n: Net, thread: int):
 
         if bike_count != 0:
             for bike in range(bike_count):
-                print(f'Processing bike {bike}')
+                print(f'{thread}: Processing bike {bike}')
                 n.vehicles = n.bikes
                 n.vehicles.time_left = n.vehicles.time
                 n.vehicles.distance_left = n.vehicles.distance
@@ -92,18 +93,9 @@ def main(n: Net, thread: int):
 
                 while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
                     'vehicle_distance'] < 0.95 * n.vehicles.distance:
-                    result = [-1]
-                    retry_count = 0
-                    while result == [-1] and retry_count < 3:
 
-                        info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
-                                          solution_limit=solution_limit, timeout=timeout)
-                        result = info['route']
-                        if result != [-1]:
-                            break
-                        else:
-                            retry_count += 1
-                            print("retry")
+                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                      solution_limit=solution_limit, timeout=timeout)
 
                     results_handler(info, n)
 
@@ -126,7 +118,7 @@ def main(n: Net, thread: int):
                     break
         # print('van')
         for i in range(5):
-            print(f'Processing van {i}')
+            print(f'{thread}: Processing van {i}')
             n.vehicles = n.vans
             n.vehicles.time_left = n.vehicles.time
             n.vehicles.distance_left = n.vehicles.distance
@@ -138,18 +130,9 @@ def main(n: Net, thread: int):
                 # print(f"van: {i}, total orders = {len(n.demand)}")
                 while n.demand and total_vehicle_info['vehicle_time'] < 0.95 * n.vehicles.time and total_vehicle_info[
                     'vehicle_distance'] < 0.95 * n.vehicles.distance:
-                    result = [-1]
-                    retry_count = 0
-                    while result == [-1] and retry_count < 3:
 
-                        info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
-                                          solution_limit=solution_limit, timeout=timeout)
-                        result = info['route']
-                        if result != [-1]:
-                            break
-                        else:
-                            retry_count += 1
-                            print("retry")
+                    info = cvrp.solve(demands=n.demand, load_point=lpoints[0], sdm=n.sdm, vehicle=n.vehicles,
+                                      solution_limit=solution_limit, timeout=timeout)
 
                     results_handler(info, n)
                     total_vehicle_info['vehicle_distance'] += info['distance']

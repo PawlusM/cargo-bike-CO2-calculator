@@ -377,7 +377,7 @@ def solve(demands, load_point, sdm, vehicle, solution_limit, timeout):
 
     solution = routing.SolveWithParameters(search_parameters)
     runtime = time.time() - start_time
-    print(runtime)
+    # print(runtime)
 
     info = {'solver_status': routing.status()}
 
