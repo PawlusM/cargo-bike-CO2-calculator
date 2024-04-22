@@ -30,7 +30,7 @@ def main(n: Net, thread: int):
     max_bikes = 5
     # limits obtained experimentally basing on the Kraków city center
 
-    timeout = 120
+    timeout = 30
     solution_limit = 5000
 
     results = {}
@@ -48,7 +48,8 @@ def main(n: Net, thread: int):
     s_dimensions = stochastic.Stochastic(law=dimensionsLaw, location=dimensionsLocation, scale=0.3 * dimensionsLocation)
 
     lpoints = [node for node in n.nodes if node.type == 'L']
-
+    n.demand = []
+    assert n.demand == []
     n.gen_requests(sender=lpoints[0], nodes=n.nodes, probs=probs, s_weight=s_weight, s_dimensions=s_dimensions)
 
     for request in n.demand:
@@ -83,7 +84,7 @@ def main(n: Net, thread: int):
 
         if bike_count != 0:
             for bike in range(bike_count):
-                print(f'{thread}: Processing bike {bike}')
+                print(f'{thread}: Processing bike {bike} of {bike_count}')
                 n.vehicles = n.bikes
                 n.vehicles.time_left = n.vehicles.time
                 n.vehicles.distance_left = n.vehicles.distance
@@ -188,6 +189,10 @@ def main(n: Net, thread: int):
                   'van_times': van_times,
                   'van_emissions': van_emissions}
     print(f'thread: {thread} done')
+
+    assert n.demand == []
+
+
     return results, demands, total_data
 
     # expected output:

@@ -65,7 +65,7 @@ def experiment(N, q, thread):
         # demands = [2]
         # total_data = [3]
         q.put((results, demands, total_data))
-        return results, demands, total_data
+    return results, demands, total_data
         # print(f"T{thread}: bike:")
         # min_bike_distance = -1
         #
@@ -142,10 +142,10 @@ boundaries_rimini = (
 rimini_loadpoint = [12.570303976535799, 44.056744178234275]
 
 experiment_list = []
-experiment_list.append({
-    'city': 'krakow',
-    'boundaries': boundaries_krakow,
-    'loadpoint': krakow_loadpoint})
+# experiment_list.append({
+#     'city': 'krakow',
+#     'boundaries': boundaries_krakow,
+#     'loadpoint': krakow_loadpoint})
 
 # experiment_list.append({
 #     'city': 'mechelen',
@@ -157,10 +157,10 @@ experiment_list.append({
 #     'boundaries': boundaries_vitoria,
 #     'loadpoint': vitoria_loadpoint})
 
-# experiment_list.append({
-#     'city': 'san_sebastian',
-#     'boundaries': boundaries_san_sebastian,
-#     'loadpoint': ss_loadpoint})
+experiment_list.append({
+    'city': 'san_sebastian',
+    'boundaries': boundaries_san_sebastian,
+    'loadpoint': ss_loadpoint})
 
 # experiment_list.append({
 #     'city': 'rimini',
@@ -212,7 +212,7 @@ for single_experiment in experiment_list:
         folder_name = city_name
 
     # folder_name = folder_name + f"_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
-    folder_name = folder_name + "_multiroute"
+    folder_name = folder_name + "_multiroute_bugfix"
     folder_path = 'results/CVRP/' + folder_name
     absolute_folder_path = os.getcwd() + '/' + folder_path
     Path(absolute_folder_path).mkdir(parents=True, exist_ok=True)
