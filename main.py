@@ -61,54 +61,9 @@ def experiment(N, q, thread):
 
     for i in range(experiment_per_thread):
         results, demands, total_data = experiment_runner.main(N, thread)
-        # results = [1]
-        # demands = [2]
-        # total_data = [3]
+
         q.put((results, demands, total_data))
     return results, demands, total_data
-        # print(f"T{thread}: bike:")
-        # min_bike_distance = -1
-        #
-        # N.vehicles = N.bikes
-        # while min_bike_distance == -1:
-        #     bike_routes, bike_distances, N = cvrp_multi_route.solve(N, timeout=timeout, solution_limit = 100)
-        #     bike_total_distances = CVRP.calculate_total_distances(bike_distances)
-        #     try:
-        #         min_bike_distance = min(bike_total_distances)
-        #     except ValueError:
-        #         min_bike_distance = -1
-        #         N.vehicles.count = N.vehicles.count + 1
-        #         print(f"T{thread}: adding bike {N.vehicles.count}")
-        #
-        # index = bike_total_distances.index(min_bike_distance)
-        #
-        # bike_count = len(bike_routes[index])
-        # print(f"T{thread}: best total bike distance: {min_bike_distance}\n")
-        #
-        # print(f"T{thread}: van:")
-        # min_van_distance = -1
-        # N.vehicles = N.vans
-        # while min_van_distance == -1:
-        #     van_routes, van_distances, N = CVRP.solve(N, timeout=timeout)
-        #     van_total_distances = CVRP.calculate_total_distances(van_distances)
-        #
-        #     try:
-        #         min_van_distance = min(van_total_distances)
-        #     except ValueError:
-        #         min_van_distance = -1
-        #         N.vehicles.count = N.vehicles.count + 1
-        #         print(f"T{thread}: adding van {N.vehicles.count}")
-        #
-        # index = van_total_distances.index(min_van_distance)
-        #
-        # van_count = len(van_routes[index])
-        #
-        # print(f"T{thread}: best total van distance: {min_van_distance}\n")
-        #
-        # van_emissions = co2.calc_co2(van_count, min_van_distance / 1000, co2.cons, co2.em_fs, params=[0, 100])
-        #
-        # result = N, bike_routes, bike_distances, min_bike_distance, bike_count, van_routes, van_distances, min_van_distance, van_count, van_emissions
-        # q.put(result)
 
 
 # just for experiments, will be deleted later
@@ -157,10 +112,10 @@ experiment_list = []
 #     'boundaries': boundaries_vitoria,
 #     'loadpoint': vitoria_loadpoint})
 
-experiment_list.append({
-    'city': 'san_sebastian',
-    'boundaries': boundaries_san_sebastian,
-    'loadpoint': ss_loadpoint})
+# experiment_list.append({
+#     'city': 'san_sebastian',
+#     'boundaries': boundaries_san_sebastian,
+#     'loadpoint': ss_loadpoint})
 
 # experiment_list.append({
 #     'city': 'rimini',
@@ -194,9 +149,6 @@ for single_experiment in experiment_list:
     # net_draw.draw_results(n)
 
     multithreading = True
-
-
-
 
     lpoints = [node for node in n.nodes if node.type == 'L']
     sender = lpoints[0]

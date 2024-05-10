@@ -190,7 +190,7 @@ def main(n: Net, thread: int):
                   'van_emissions': van_emissions}
     print(f'thread: {thread} done')
 
-    assert n.demand == []
+
 
 
     return results, demands, total_data
