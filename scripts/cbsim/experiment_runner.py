@@ -37,11 +37,11 @@ def main(n: Net, thread: int):
     probs = {'F_D': 0.3, 'L_B': 0.1, 'C_S': 0.4, 'V_S': 0.15, 'O_S': 0.05, 'O': 0.05, 'N': 0, 'L': 0}
 
     weightLaw = 1  # 0 - rectangular, 1 - normal, 2 - exponential
-    weightLocation = 25000  # grams
+    weightLocation = 50000  # grams
     # weightScale = 150000  # 25kg for UPS, InPost, 31,5 kg for for DPD, DHL
 
     dimensionsLaw = 1
-    dimensionsLocation = 300  # mm
+    dimensionsLocation = 400  # mm
     # dimensionsScale = 1000
 
     s_weight = stochastic.Stochastic(law=weightLaw, location=weightLocation, scale=0.3 * weightLocation)
