@@ -164,7 +164,7 @@ for single_experiment in experiment_list:
         folder_name = city_name
 
     # folder_name = folder_name + f"_{weightLaw}_law_{weightLocation}_location_{weightScale}_scale_{dimensionsLaw}_dimLaw_{dimensionsLocation}_dimLoc{dimensionsScale}_dimScale"
-    folder_name = folder_name + "_multiroute_bugfix"
+    folder_name = folder_name + "_multiroute_new_demand"
     folder_path = 'results/CVRP/' + folder_name
     absolute_folder_path = os.getcwd() + '/' + folder_path
     Path(absolute_folder_path).mkdir(parents=True, exist_ok=True)
